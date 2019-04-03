@@ -11,7 +11,8 @@ class App extends Component {
     this.state = {
       beers: beers,
       breweries: breweries,
-      locations: []
+      locations: [],
+      splash: false
     }
 
     this.getStates=this.getStates.bind(this)
@@ -28,13 +29,12 @@ class App extends Component {
           acc.push(currentBrewery.state)
         }
       return acc;
-    }, [])
+    }, []).sort();
     this.setState({locations: states});
   }
 
 
   render() {
-    console.log(this.state.locations)
     return (
       <div>
         <Locations location={this.state.locations}/>
