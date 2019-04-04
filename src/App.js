@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { breweries, beers } from './data.js';
-import Locations from './Locations.js';
+import Welcome from './Welcome.js';
 import Breweries from './Breweries.js'
 
 class App extends Component {
@@ -11,9 +11,7 @@ class App extends Component {
     this.state = {
       beers: beers,
       breweries: breweries,
-      locations: [],
-      currentLocation: '',
-      currentBreweries: []
+      locations: []
     }
   }
 
@@ -30,38 +28,11 @@ class App extends Component {
     }, []).sort();
     this.setState({locations: states});
   }
-
-  chooseState = (e) => {
-    this.setState({currentLocation: e}, ()=> {
-      this.filteredBreweries()
-    })
-  }
-  
-  filteredBreweries = () => {
-    let locationBreweries = this.state.breweries.filter( brew => {
-      return brew.state === this.state.currentLocation
-    })
-    this.setState({currentBreweries: locationBreweries})
-  }
   
   render() {
     return (
       <div>
-        <h1>ShakesBeer</h1>
-        <Locations location={this.state.locations}
-                   filter={this.chooseState}    
-        />
-        {
-          this.state.currentBreweries.map( brew => {
-            return (
-              <Breweries brewery={brew.name}
-                         key={brew.FIELD1} 
-                         beer={this.state.beers}
-                         brew={this.state.currentBreweries}
-              />
-            )
-          })
-        }
+        <Welcome locations={this.state.locations} breweries={this.state.breweries} beers={this.state.beers}/>
       </div>
     );
   }
