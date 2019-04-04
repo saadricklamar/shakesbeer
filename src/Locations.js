@@ -21,19 +21,21 @@ class Locations extends Component {
 
 render() {
     return (
-      <div className="splash-page">
-        <h2 onClick={this.toggleDropDown}>location</h2>
+      <div className='location-container'>
+        <h2 onMouseOver={this.toggleDropDown}>Choose a state</h2>
         {
           this.state.dropDown ? (
+          <nav>
             <ul>
               {
                 this.props.location.map(loc =>{
                   return(
-                    <li key={loc} onClick={this.getTarget}>{loc}</li>
+                    <li className='location-option' key={loc} onClick={this.getTarget}>{loc}</li>
                   )
                 })
               }
             </ul>
+          </nav>
           ) : ( null )
         }
       </div>
