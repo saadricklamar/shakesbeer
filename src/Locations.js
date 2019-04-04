@@ -3,34 +3,38 @@ import React, { Component } from 'react';
 class Locations extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-       splashPage: true
+      dropDown: false
     }
-
   }
 
-
-
-  appendState = () => {
-     this.props.location.forEach(state => {
-     let stateInput = document.querySelector('#state-input');
-     let option = document.createElement('option')
-     option.text = state;
-     stateInput.add(option)
-     // stateInput.appendChild(`<option>${state}</option>`)
-    })
-
+  getTarget = (e) => {
+    this.props.filter(e.target.innerText)
+    this.toggleDropDown()
   }
 
+  toggleDropDown = () => {
+    this.setState({dropDown: !this.state.dropDown})
+    console.log(this.state.dropDown)
+  }
 
 render() {
     return (
       <div>
-        <form>
-          {this.appendState()}
-          <select id="state-input"></select>
-        </form>
+        <h2 onClick={this.toggleDropDown}>location</h2>
+        {
+          this.state.dropDown ? (
+            <ul>
+              {
+                this.props.location.map(loc =>{
+                  return(
+                    <li key={loc} onClick={this.getTarget}>{loc}</li>
+                  )
+                })
+              }
+            </ul>
+          ) : ( null )
+        }
       </div>
     );
   }
