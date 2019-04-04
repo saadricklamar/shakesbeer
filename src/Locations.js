@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Locations.css';
 
 class Locations extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class Locations extends Component {
 
 render() {
     return (
-      <div>
+      <div className="splash-page">
         <h2 onClick={this.toggleDropDown}>location</h2>
         {
           this.state.dropDown ? (
