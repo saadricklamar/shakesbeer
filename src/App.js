@@ -30,10 +30,10 @@ class App extends Component {
   }
   
   render() {
-    console.log(this.state.currentLocation)
-    console.log(this.state.currentBreweries)
     return (
-      <Welcome locations={this.state.locations} breweries={this.state.breweries} beers={this.state.beers}/>
+      <div>
+        <Welcome locations={this.state.locations} breweries={this.state.breweries} beers={this.state.beers}/>
+      </div>
     );
   }
 }

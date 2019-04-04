@@ -22,7 +22,7 @@ class Welcome extends Component {
   }
   
   filteredBreweries = () => {
-    let locationBreweries = this.state.breweries.filter( brew => {
+    let locationBreweries = this.props.breweries.filter( brew => {
       return brew.state === this.state.currentLocation
     })
     this.setState({currentBreweries: locationBreweries})
@@ -40,6 +40,8 @@ class Welcome extends Component {
             return (
               <Breweries brewery={brew.name}
                          key={brew.FIELD1} 
+                         beer={this.props.beers}
+                         brew={this.state.currentBreweries}
               />
             )
           })
