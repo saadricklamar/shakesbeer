@@ -32,7 +32,6 @@ class App extends Component {
   }
 
   chooseState = (e) => {
-    console.log(e)
     this.setState({currentLocation: e}, ()=> {
       this.filteredBreweries()
     })
@@ -46,8 +45,6 @@ class App extends Component {
   }
   
   render() {
-    console.log(this.state.currentLocation)
-    console.log(this.state.currentBreweries)
     return (
       <div>
         <h1>ShakesBeer</h1>
@@ -59,6 +56,8 @@ class App extends Component {
             return (
               <Breweries brewery={brew.name}
                          key={brew.FIELD1} 
+                         beer={this.state.beers}
+                         brew={this.state.currentBreweries}
               />
             )
           })

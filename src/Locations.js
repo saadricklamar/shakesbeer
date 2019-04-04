@@ -16,7 +16,6 @@ class Locations extends Component {
 
   toggleDropDown = () => {
     this.setState({dropDown: !this.state.dropDown})
-    console.log(this.state.dropDown)
   }
 
 render() {
