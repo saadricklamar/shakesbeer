@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { breweries, beers } from './data.js';
 import Welcome from './Welcome.js';
-import Breweries from './Breweries.js'
+import Results from './Results.js';
 
 class App extends Component {
   constructor() {
@@ -11,30 +11,23 @@ class App extends Component {
     this.state = {
       beers: beers,
       breweries: breweries,
-      locations: []
+      selectedState: '',
+      showWelcomeScreen: true
     }
   }
 
-  componentDidMount() {
-    this.getStates()
-  }
-
-  getStates = () => {
-    let states = this.state.breweries.reduce((acc, currentBrewery) => {
-      if(!acc.includes(currentBrewery.state)) {
-        acc.push(currentBrewery.state)
-      }
-      return acc;
-    }, []).sort();
-    this.setState({locations: states});
+  chooseState = (e) => {
+    this.setState({selectedState: e.target.innerText, showWelcomeScreen: false});
   }
   
   render() {
-    return (
-      <div>
-        <Welcome locations={this.state.locations} breweries={this.state.breweries} beers={this.state.beers}/>
-      </div>
-    );
+    let page;
+    if (this.state.showWelcomeScreen) {
+      page = <Welcome locations={this.state.locations} breweries={this.state.breweries} beers={this.state.beers} chooseState={this.chooseState}/>
+    } else {
+      page = <Results selectedState={this.state.selectedState} breweries={this.state.breweries} beers={this.state.beers}/>
+    }
+    return (<div>{page}</div>);
   }
 }
 
