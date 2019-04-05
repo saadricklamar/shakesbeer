@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { breweries, beers } from './data.js';
-import Welcome from './Welcome.js';
-import Results from './Results.js';
+import WelcomePage from './WelcomePage.js';
+import ResultsPage from './ResultsPage.js';
 
 class App extends Component {
   constructor() {
@@ -23,9 +23,9 @@ class App extends Component {
   render() {
     let page;
     if (this.state.showWelcomeScreen) {
-      page = <Welcome locations={this.state.locations} breweries={this.state.breweries} beers={this.state.beers} chooseState={this.chooseState}/>
+      page = <WelcomePage locations={this.state.locations} breweries={this.state.breweries} beers={this.state.beers} chooseState={this.chooseState}/>
     } else {
-      page = <Results selectedState={this.state.selectedState} breweries={this.state.breweries} beers={this.state.beers}/>
+      page = <ResultsPage selectedState={this.state.selectedState} breweries={this.state.breweries} beers={this.state.beers}/>
     }
     return (<div>{page}</div>);
   }

@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import Locations from './Locations.js';
-import './Welcome.css';
+import './WelcomePage.css';
 import Breweries from './Breweries.js';
 
-class Welcome extends Component {
+class WelcomePage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      currentLocation: '',
       currentBreweries: [],
-      locations: [],
+      locations: []
     }
   }
 
@@ -41,4 +40,4 @@ class Welcome extends Component {
   }
 }
 
-export default Welcome;
+export default WelcomePage;
