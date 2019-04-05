@@ -9,43 +9,33 @@ class Welcome extends Component {
 
     this.state = {
       currentLocation: '',
-      currentBreweries: []
+      currentBreweries: [],
+      locations: [],
     }
   }
 
-
-  chooseState = (e) => {
-    console.log(e)
-    this.setState({currentLocation: e}, ()=> {
-      this.filteredBreweries()
-    })
+  componentDidMount() {
+    this.getStates()
   }
-  
-  filteredBreweries = () => {
-    let locationBreweries = this.props.breweries.filter( brew => {
-      return brew.state === this.state.currentLocation
-    })
-    this.setState({currentBreweries: locationBreweries})
+
+  getStates = () => {
+    let states = this.props.breweries.reduce((acc, currentBrewery) => {
+      if(!acc.includes(currentBrewery.state)) {
+        acc.push(currentBrewery.state)
+      }
+      return acc;
+    }, []).sort();
+    this.setState({locations: states});
   }
 
   render() {
     return (
-      <div>
-        <h1>ShakesBeer</h1>
-        <Locations location={this.props.locations}
-                   filter={this.chooseState}    
+      <div className='welcome-page'>
+        <h1 className='welcome-header'>ShakesBeer</h1>
+        <Locations location={this.state.locations}
+                   filter={this.chooseState}  
+                   chooseState={this.props.chooseState}  
         />
-        {
-          this.state.currentBreweries.map( brew => {
-            return (
-              <Breweries brewery={brew.name}
-                         key={brew.FIELD1} 
-                         beer={this.props.beers}
-                         brew={this.state.currentBreweries}
-              />
-            )
-          })
-        }
       </div>
     );
   }

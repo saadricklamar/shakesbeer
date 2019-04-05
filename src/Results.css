@@ -1,0 +1,19 @@
+.results-page {
+  background: white;
+  display: block;
+  padding-left: 50px;
+  color: black;
+}
+
+h1.results-header {
+  color: rgb(87, 87, 87);
+  font-size: 100px;
+  margin: 10px 0px;
+}
+
+h2.state-subheading {
+  color: rgb(87, 87, 87);
+  /* margin: 0px 30px; */
+}
+
+

@@ -9,36 +9,36 @@ class Locations extends Component {
     }
   }
 
-  getTarget = (e) => {
-    this.props.filter(e.target.innerText)
-    this.toggleDropDown()
-  }
-
-  toggleDropDown = () => {
-    this.setState({dropDown: !this.state.dropDown})
+  toggleDropDown = (e) => {
+    this.setState({dropDown: !this.state.dropDown});
   }
 
 render() {
-    return (
-      <div className='location-container'>
-        <h2 onMouseOver={this.toggleDropDown}>Choose a state</h2>
-        {
-          this.state.dropDown ? (
-          <nav>
-            <ul>
-              {
-                this.props.location.map(loc =>{
-                  return(
-                    <li className='location-option' key={loc} onClick={this.getTarget}>{loc}</li>
-                  )
-                })
-              }
-            </ul>
-          </nav>
-          ) : ( null )
-        }
-      </div>
-    );
+  let displayClass = '';
+
+  if (this.state.dropDown) {
+    displayClass = 'select-expanded';
+  }
+  return (
+    <div className='location-container'>
+      <h2 className={`dropdown-header ${displayClass}`} onClick={this.toggleDropDown}>Choose a state</h2>
+      {
+        this.state.dropDown ? (
+        <nav>
+          <ul className='state-dropdown'>
+            {
+              this.props.location.map(loc => {
+                return(
+                  <li className='state-dropdown-options' key={loc} onClick={this.props.chooseState}>{loc}</li>
+                )
+              })
+            }
+          </ul>
+        </nav>
+        ) : ( null )
+      }
+    </div>
+  );
   }
 }
 

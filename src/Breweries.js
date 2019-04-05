@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Beer from "./Beer.js"
+import Beer from './Beer.js';
 
 class Breweries extends Component {
     constructor(props) {
