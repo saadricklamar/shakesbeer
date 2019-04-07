@@ -1,19 +1,50 @@
 .results-page {
   background: white;
   display: block;
-  padding-left: 50px;
+  margin: 0;
+  /* margin-left: 50px; */
   color: black;
 }
 
+header {
+  width: 100%;
+  background: #EB8240;
+  display: flex;
+  align-items: center;
+  border-top: solid 5px #EFA63B;
+  border-bottom: solid 5px #EFA63B;
+}
+
+header .logo {
+  background: url("./images/shakesbeerlogo.png");
+  height: 100px;
+  width: 80px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
 h1.results-header {
-  color: rgb(87, 87, 87);
+  color: rgb(255, 255, 255);
   font-size: 100px;
-  margin: 10px 0px;
+  margin: 0;
+  padding: 0;
 }
 
 h2.state-subheading {
   color: rgb(87, 87, 87);
   /* margin: 0px 30px; */
+}
+
+main {
+  margin: 0;
+  padding: 15px 30px;
+  height: 100vh;
+}
+
+.brew-cards {
+  background: white;
+  border-radius: 5px;
 }
 
 

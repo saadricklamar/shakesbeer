@@ -16,6 +16,20 @@ class App extends Component {
     }
   }
 
+  // componentDidMount() {
+  //   // fetch(`https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lynnerang/beers`)
+  //   // .then(data => data.json())
+  //   // .then(data => this.setState({ beers: data }))
+  //   // .catch(err => console.error(error))
+
+  //   fetch('https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lynnerang/breweries')
+  //   .then(response => response.json())
+  //   .then(jsonData => this.setState({ breweries: jsonData }))
+
+  //   console.log(this.state.breweries);
+  //   // .catch(err => console.error(error))
+  // }
+
   chooseState = (e) => {
     this.setState({selectedState: e.target.innerText, showWelcomeScreen: false});
   }

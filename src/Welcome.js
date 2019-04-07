@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Locations from './Locations.js';
 import './Welcome.css';
-import Breweries from './Breweries.js';
 
 class Welcome extends Component {
   constructor(props) {

@@ -26,19 +26,26 @@ class Results extends Component {
   render() {
     return (
       <div className="results-page">
-        <h1 className="results-header">ShakesBeer</h1>
-        <h2 className="state-subheading">{this.props.selectedState}</h2>  
-        {
-          this.state.currentBreweries.map( brew => {
-            return (
-              <Breweries brewery={brew.name}
-                         key={brew.FIELD1} 
-                         beer={this.props.beers}
-                         brew={this.state.currentBreweries}
-              />
-            )
-          })
-        }
+        <header>
+          <div className="logo"/>
+          <h1 className="results-header">ShakesBeer</h1>
+        </header>
+        <main>
+          <h2 className="state-subheading">{this.props.selectedState}</h2>  
+          <div className="brew-cards">
+          {
+            this.state.currentBreweries.map( brew => {
+              return (
+                <Breweries brewery={brew.name}
+                          key={brew.FIELD1} 
+                          beer={this.props.beers}
+                          brew={this.state.currentBreweries}
+                />
+              )
+            })
+          }
+          </div>
+        </main>
       </div>
     );
   }
