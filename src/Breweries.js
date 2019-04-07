@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Beer from './Beer.js';
+import Beer from "./Beer.js"
 
 class Breweries extends Component {
     constructor(props) {
@@ -41,6 +41,7 @@ class Breweries extends Component {
     }
     
     render() {
+        console.log(this.state.beerList)
         return (
             <div>
                <h2 onClick={this.getTarget}>{this.props.brewery}</h2>
