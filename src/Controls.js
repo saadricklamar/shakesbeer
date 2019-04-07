@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 class Controls extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       selectedCity: ''
       
@@ -17,36 +16,23 @@ class Controls extends Component {
     });
   }
 
-  
-
-
   render() {
   
     return (
-        <form className="nav">
-
-         <select onChange={this.chooseCity} defaultValue={'All'}>
-         <option>All</option>
-            {
-              this.props.breweryCities.map(loc => {
-                return(
-                  <option className='state-dropdown-options' key={loc}>{loc}</option>
-                )
-              })
-            }
-          </select>
-
-        
-            
-
-
-
-        </form>
-      )
-
-
- }
-
+      <form className="nav">
+        <select onChange={this.chooseCity} defaultValue={'All'}>
+        <option>All</option>
+          {
+            this.props.breweryCities.map(loc => {
+              return(
+                <option className='state-dropdown-options' key={loc}>{loc}</option>
+              )
+            })
+          }
+        </select>
+      </form>
+    )
+  }
 }
 
   export default Controls;

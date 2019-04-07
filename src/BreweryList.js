@@ -5,14 +5,10 @@ import Breweries from './Breweries.js'
 class BreweryList extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      
-      
+           
     }
   }
-
-
 
   render() {
 

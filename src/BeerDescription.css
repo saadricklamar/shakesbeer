@@ -1,0 +1,13 @@
+.beer-description {
+    text-align: center;
+    background: #d28b8b;
+    position: absolute;
+    right: 300px;
+    left: 700px;
+    top: 300px;
+    bottom: 400px;
+}
+
+.click-me {
+    background: navajowhite;
+}

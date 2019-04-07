@@ -21,7 +21,8 @@ render() {
   }
   return (
     <div className='location-container'>
-      <h2 className={`dropdown-header ${displayClass}`} onClick={this.toggleDropDown}>Choose a state</h2>
+      <h2 className={`dropdown-header ${displayClass}`} 
+          onClick={this.toggleDropDown}>Choose a state</h2>
       {
         this.state.dropDown ? (
         <nav>
@@ -29,7 +30,10 @@ render() {
             {
               this.props.location.map(loc => {
                 return(
-                  <li className='state-dropdown-options' key={loc} onClick={this.props.chooseState}>{loc}</li>
+                  <li className='state-dropdown-options' 
+                      key={loc} 
+                      onClick={this.props.chooseState}>{loc}
+                  </li>
                 )
               })
             }

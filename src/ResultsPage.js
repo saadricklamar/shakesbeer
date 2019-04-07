@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Breweries from './Breweries.js';
+// import Breweries from './Breweries.js';
 import './ResultsPage.css';
 import Controls from './Controls.js'
 import BreweryList from './BreweryList.js'
@@ -55,8 +55,13 @@ class ResultsPage extends Component {
       <div className="results-page">
         <h1 className="results-header">ShakesBeer</h1>
         <h2 className="state-subheading">{this.props.selectedState}</h2> 
-        <Controls breweryCities={this.state.breweryCities} filterCities={this.filterCities}/>
-        <BreweryList filteredBreweries={this.state.filteredBreweries} beers={this.props.beers}/>
+        <Controls breweryCities={this.state.breweryCities} 
+                  filterCities={this.filterCities}
+        />
+        <BreweryList filteredBreweries={this.state.filteredBreweries} 
+                     beers={this.props.beers}
+                     currentBreweries={this.state.currentBreweries}
+        />
       </div>
     );
   }
