@@ -54,7 +54,7 @@ class ResultsPage extends Component {
     return (
       <div className="results-page">
         <header>
-          <div className="logo"/>
+          <img src="/src/images/shakesbeerlogosmall.png" alt="shakesbeer logo"/>
           <h1 className="results-header">ShakesBeer</h1>
         </header>
         <main>

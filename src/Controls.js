@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Controls.css';
 
 class Controls extends Component {
   constructor(props) {
@@ -20,7 +20,8 @@ class Controls extends Component {
   
     return (
       <form className="nav">
-        <select onChange={this.chooseCity} defaultValue={'All'}>
+        <label for='city-filter' className='filter-label'>City: </label>
+        <select className='filter' id='city-filter' onChange={this.chooseCity} defaultValue={'All'}>
         <option>All</option>
           {
             this.props.breweryCities.map(loc => {

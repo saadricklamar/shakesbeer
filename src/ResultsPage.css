@@ -16,7 +16,6 @@ header {
 }
 
 header .logo {
-  background: url("./images/shakesbeerlogo.png");
   height: 100px;
   width: 80px;
   padding-bottom: 10px;
@@ -38,13 +37,9 @@ h2.state-subheading {
 
 main {
   margin: 0;
-  padding: 15px 30px;
+  padding: 10px 30px;
   height: 100vh;
 }
 
-.brew-cards {
-  background: white;
-  border-radius: 5px;
-}
 
 
