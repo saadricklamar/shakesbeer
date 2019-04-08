@@ -63,7 +63,6 @@ class ResultsPage extends Component {
   getIbus = () => {
     let ibus = this.state.stateBreweries.reduce((acc, brewery) => {
       brewery.beers.forEach(beer => {
-        console.log(beer.ibu);
         const ibuMinRange = Math.round(beer.ibu / 10) * 10;
         const ibuOption = `${ibuMinRange}-${ibuMinRange + 9}`;
         if(!acc.includes(ibuOption) && beer.ibu !== null) {
@@ -83,22 +82,15 @@ class ResultsPage extends Component {
 
   refreshBreweryList = () => {
     //reset page defaults
-    this.setState({ filteredBreweries: [...this.state.stateBreweries] }, () => this.runFilters());
+    this.setState({ filteredBreweries: [...this.state.stateBreweries] }, () => this.filterByCity());
   }
-
-  runFilters = property => {
-    this.filterByCity();
-    this.filterByStyle();
-    this.filterByIbu();
-    // this.filterByBeerProperty('abv');
-  } 
 
   filterByCity = () => {
     if (this.state.citySelection !== 'All') {
       let filterResults = this.state.filteredBreweries.filter(brewery => {
         return brewery.city === this.state.citySelection;
       });
-      this.setState({ filteredBreweries: filterResults });
+      this.setState({ filteredBreweries: filterResults }, () => this.filterByStyle());
     }
   }
 
@@ -111,7 +103,7 @@ class ResultsPage extends Component {
         }
         return acc;
       }, [])
-      this.setState({filteredBreweries: filterResults});
+      this.setState({filteredBreweries: filterResults}, () => this.filterByIbu());
     }
   }
 
@@ -127,7 +119,7 @@ class ResultsPage extends Component {
         }
         return acc;
       }, [])
-      this.setState({filteredBreweries: filterResults});
+      this.setState({filteredBreweries: filterResults}); //add filter by ABV to callback
     }
   }
  
@@ -144,7 +136,6 @@ class ResultsPage extends Component {
             <Controls breweryCities={this.state.breweryCities} 
                       beerStyles={this.state.beerStyles}
                       beerIbus={this.state.beerIbus}
-                      filterByCity={this.filterByCity}
                       filterSelections={this.state.filterSelections}
                       updateFilterSelection={this.updateFilterSelection}
             />
