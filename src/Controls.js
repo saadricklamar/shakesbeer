@@ -16,6 +16,10 @@ class Controls extends Component {
     this.props.updateFilterSelection('style', e.target.value); 
   }
 
+  updateIbu = (e) => {
+    this.props.updateFilterSelection('ibu', e.target.value); 
+  }
+
   render() {
     return (
       <form className="nav">
@@ -35,6 +39,17 @@ class Controls extends Component {
         <option>All</option>
           {
             this.props.beerStyles.map(loc => {
+              return(
+                <option className='state-dropdown-options' key={loc}>{loc}</option>
+              )
+            })
+          }
+        </select>
+        <label htmlFor='ibu-filter' className='filter-label'>ibu: </label>
+        <select className='filter' id='ibu-filter' onChange={this.updateIbu}>
+        <option>All</option>
+          {
+            this.props.beerIbus.map(loc => {
               return(
                 <option className='state-dropdown-options' key={loc}>{loc}</option>
               )
