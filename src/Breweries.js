@@ -6,7 +6,6 @@ class Breweries extends Component {
         super(props);
         this.state = {
             dropDown: false,
-            currentBrewery: 0,
             breweryName: '',
             beerList: []
         }
@@ -15,25 +14,16 @@ class Breweries extends Component {
 
     getTarget = (e) => {
         this.setState({breweryName: e.target.innerText}, () => {
-            this.findBrewery(); 
+            this.findBeers(); 
         }) 
         this.toggleDropDown()
     }
 
-    findBrewery = () => {
-        let newBrewery = this.props.brew.find(brewery => {
+    findBeers = () => {
+        let newBeers = this.props.dataset.find(brewery => {
             return this.state.breweryName === brewery.name;
-        }).FIELD1
-        this.setState({currentBrewery: newBrewery}, () => {
-            this.filterBeers()
-        })
-    }
-
-    filterBeers = () => {
-        let specificBreweryBeers = this.props.beer.filter(currentBeer => {
-            return currentBeer.brewery_id === this.state.currentBrewery;
-        })
-        this.setState({beerList: specificBreweryBeers})
+        }).beers
+        this.setState({beerList: newBeers});
     }
 
     toggleDropDown = () => {
@@ -41,10 +31,9 @@ class Breweries extends Component {
     }
     
     render() {
-        console.log(this.state.beerList)
         return (
             <div>
-               <h2 onClick={this.getTarget}>{this.props.brewery}</h2>
+               <h2 onClick={this.getTarget}>{this.props.name}</h2>
                {
                 this.state.dropDown ? (
                     this.state.beerList.map(beer => {

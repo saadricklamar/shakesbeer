@@ -15,12 +15,10 @@ class BreweryList extends Component {
       return (
         <div>
         {
-          this.props.filteredBreweries.map( brew => {
+          this.props.filteredBreweries.map(brewery => {
             return (
-              <Breweries brewery={brew.name}
-                         key={brew.FIELD1} 
-                         beer={this.props.beers}
-                         brew={this.props.currentBreweries}
+              <Breweries name={brewery.name}
+                         dataset={this.props.dataset}
               />
             )
           })

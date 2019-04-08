@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
-
+import './Controls.css';
 
 class Controls extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedCity: ''
-      
+      selectedCity: '',
     }
   }
 
-  chooseCity = (e) => {
-    this.setState({selectedCity: e.target.value}, () => {
-      this.props.filterCities(this.state.selectedCity);
-    });
+  updateCity = (e) => {
+    this.props.updateFilterSelection('city', e.target.value); //will only need this if we go with parent props & filter
+
+    // this.setState({selectedCity: e.target.value}, () => {
+    //   this.props.filterByCity(this.state.selectedCity);
+    // });
   }
 
   render() {
-  
     return (
       <form className="nav">
-        <select onChange={this.chooseCity} defaultValue={'All'}>
+        <label htmlFor='city-filter' className='filter-label'>City: </label>
+        <select className='filter' id='city-filter' onChange={this.updateCity}>
         <option>All</option>
           {
             this.props.breweryCities.map(loc => {

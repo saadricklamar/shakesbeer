@@ -9,59 +9,95 @@ class ResultsPage extends Component {
     super(props);
 
     this.state = {
-      currentBreweries: [],
+      stateBreweries: [],
       breweryCities: [],
-      filteredBreweries: []
+      citySelection: 'All', 
+      styleSelection: 'All',
+      ibuSelection: 'All', 
+      abvSelection: 'All',
+      filterSelections: [this.citySelection, this.styleSelection, this.ibuSelection, this.abvSelection],
+      filteredBreweries: [],
+      filterOptions: {cities: [], styles: [], ibus: [], abvs: []}
     }
   }
 
-  componentDidMount() {
-    this.filterBreweries();
+  componentWillMount() {
+    this.getStateBreweries();
   }
 
-  filterBreweries = () => {
-    let locationBreweries = this.props.breweries.filter( brew => {
-      return brew.state === this.props.selectedState;
+  getStateBreweries = () => {
+    let stateBreweries = this.props.dataset.filter(brewery => {
+      return brewery.state === this.props.selectedState;
     })
-    this.setState({currentBreweries: locationBreweries}, () => {
+    this.setState({ stateBreweries: stateBreweries }, () => {
+      this.displayMatchingBreweries();
       this.getCities();
     })
   }
 
   getCities = () => {
-    let cities = this.state.currentBreweries.reduce((acc, currentBrewery) => {
-      if(!acc.includes(currentBrewery.city)) {
-        acc.push(currentBrewery.city)
+    let cities = this.state.stateBreweries.reduce((acc, brewery) => {
+      if(!acc.includes(brewery.city)) {
+        acc.push(brewery.city)
       }
       return acc;
     }, []).sort();
-    this.setState({breweryCities: cities});
+    this.setState({ breweryCities: cities });
   } 
 
-  filterCities = (selected) => {
-    let breweries = this.state.currentBreweries.filter(brewery => {
-      if(selected === 'All') {
+  updateFilterSelection = (filterName, value) => {
+    const propertyName = `${filterName}Selection`;
+    this.setState({ [propertyName]: value });
+    this.displayMatchingBreweries();
+  }
+
+  filterbyCity = selected => {
+    let breweries = this.state.stateBreweries.filter(brewery => {
+      if (selected === 'All') {
         return brewery;
       } else {
-        return brewery.city === selected
+        return brewery.city === selected;
       }
     })
-    this.setState({filteredBreweries: breweries})
+    this.setState({ filteredBreweries: breweries });
+  }
+
+  displayMatchingBreweries = () => {
+    this.setState({ filteredBreweries: [...this.state.stateBreweries] }, () => this.checkFilterMatches('city'));
+  }
+
+  checkFilterMatches = property => {
+    let filterResults = [];
+    if (this.state[`${property}Selection`] !== 'All') {
+      filterResults = this.state.filteredBreweries.filter(result => {
+          return result[property] === this.state[`${property}Selection`];
+        });
+      this.setState({filteredBreweries: filterResults});
+    }
   }
  
   render() {
-
+    console.log(this.state.filteredBreweries);  //not working
+    console.log(this.state.citySelection); //this is working
     return (
       <div className="results-page">
-        <h1 className="results-header">ShakesBeer</h1>
-        <h2 className="state-subheading">{this.props.selectedState}</h2> 
-        <Controls breweryCities={this.state.breweryCities} 
-                  filterCities={this.filterCities}
-        />
-        <BreweryList filteredBreweries={this.state.filteredBreweries} 
-                     beers={this.props.beers}
-                     currentBreweries={this.state.currentBreweries}
-        />
+        <header>
+          <img src="./images/shakesbeerlogosmall.png" alt="shakesbeer logo"/>
+          <h1 className="results-header">ShakesBeer</h1>
+        </header>
+        <main>
+          <h2 className="state-subheading">{this.props.selectedState}</h2>  
+          <div className="brew-cards">
+            <Controls breweryCities={this.state.breweryCities} 
+                      filterByCity={this.filterByCity}
+                      filterSelections={this.state.filterSelections}
+                      updateFilterSelection={this.updateFilterSelection}
+            />
+            <BreweryList filteredBreweries={this.state.filteredBreweries} 
+                         dataset={this.props.dataset}
+            />
+          </div>
+        </main>
       </div>
     );
   }
