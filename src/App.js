@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { breweries, beers } from './data.js';
+// import {breweries, beers} from './data.js';
 import WelcomePage from './WelcomePage.js';
 import ResultsPage from './ResultsPage.js';
 
@@ -9,26 +9,40 @@ class App extends Component {
     super();
 
     this.state = {
-      beers: beers,
-      breweries: breweries,
+      beers: [],
+      breweries: [],
+      dataset: [],
       selectedState: '',
       showWelcomeScreen: true
     }
   }
 
-  // componentDidMount() {
-  //   // fetch(`https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lynnerang/beers`)
-  //   // .then(data => data.json())
-  //   // .then(data => this.setState({ beers: data }))
-  //   // .catch(err => console.error(error))
+  componentDidMount = () => {
+    this.getJsonData('beers');
+    this.getJsonData('breweries');
+  }
 
-  //   fetch('https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lynnerang/breweries')
-  //   .then(response => response.json())
-  //   .then(jsonData => this.setState({ breweries: jsonData }))
+  getJsonData = set => {
+    fetch(`https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lynnerang/${set}`)
+    .then(data => data.json())
+    .then(data => this.setState({ [set]: data[set] }, () => {
+      this.getCombinedData();
+    })) 
+    .catch(error => console.error(error))
+  }
 
-  //   console.log(this.state.breweries);
-  //   // .catch(err => console.error(error))
-  // }
+  getCombinedData = () => {
+    const data = this.state.breweries.reduce((acc, brewery) => {
+      acc.push({
+        name: brewery.name,
+        state: brewery.state,
+        city: brewery.city,
+        beers: this.state.beers.filter(beer => beer.brewery_id === brewery.FIELD1)
+      });
+      return acc;
+    }, []);
+    this.setState({ dataset: data});
+  }
 
   chooseState = (e) => {
     this.setState({selectedState: e.target.innerText, showWelcomeScreen: false});
@@ -36,10 +50,20 @@ class App extends Component {
   
   render() {
     let page;
-    if (this.state.showWelcomeScreen) {
-      page = <WelcomePage locations={this.state.locations} breweries={this.state.breweries} beers={this.state.beers} chooseState={this.chooseState}/>
+    if (this.state.beers.length === 0 || this.state.breweries.length === 0) {
+      page = <img className='loading' src='./images/spinner.gif' alt='loading icon'/>
+    } else if (this.state.showWelcomeScreen) {
+      page = <WelcomePage dataset={this.state.dataset} 
+                          breweries={this.state.breweries}
+                          beers={this.state.beers} 
+                          chooseState={this.chooseState}
+             />
     } else {
-      page = <ResultsPage selectedState={this.state.selectedState} breweries={this.state.breweries} beers={this.state.beers}/>
+      page = <ResultsPage selectedState={this.state.selectedState} 
+                          dataset={this.state.dataset}
+                          breweries={this.state.breweries} 
+                          beers={this.state.beers}
+             />
     }
     return (<div>{page}</div>);
   }

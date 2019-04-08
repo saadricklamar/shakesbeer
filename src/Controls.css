@@ -8,3 +8,7 @@
 .filter-label {
   padding-right: 10px;
 }
+
+.filter:focus {
+  outline-color: #EB8240;
+}

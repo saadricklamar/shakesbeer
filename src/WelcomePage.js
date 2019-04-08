@@ -8,31 +8,16 @@ class WelcomePage extends Component {
     super(props);
 
     this.state = {
-      currentBreweries: [],
-      locations: []
+      currentBreweries: []
     }
-  }
-
-  componentDidMount() {
-    this.getStates()
-  }
-
-  getStates = () => {
-    let states = this.props.breweries.reduce((acc, currentBrewery) => {
-      if(!acc.includes(currentBrewery.state)) {
-        acc.push(currentBrewery.state)
-      }
-      return acc;
-    }, []).sort();
-    this.setState({locations: states});
   }
 
   render() {
     return (
       <div className='welcome-page'>
         <h1 className='welcome-header'>ShakesBeer</h1>
-        <Locations location={this.state.locations}
-                   filter={this.chooseState}  
+        <Locations dataset={this.props.dataset}
+                   breweries={this.props.breweries}
                    chooseState={this.props.chooseState}  
         />
       </div>
