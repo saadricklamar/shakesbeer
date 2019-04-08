@@ -91,6 +91,8 @@ class ResultsPage extends Component {
         return brewery.city === this.state.citySelection;
       });
       this.setState({ filteredBreweries: filterResults }, () => this.filterByStyle());
+    } else {
+      this.filterByStyle()
     }
   }
 
@@ -104,6 +106,8 @@ class ResultsPage extends Component {
         return acc;
       }, [])
       this.setState({filteredBreweries: filterResults}, () => this.filterByIbu());
+    } else {
+      this.filterByIbu();
     }
   }
 
@@ -120,7 +124,10 @@ class ResultsPage extends Component {
         return acc;
       }, [])
       this.setState({filteredBreweries: filterResults}); //add filter by ABV to callback
-    }
+    } 
+    // else {
+    //   this.filterByAbv()
+    // }
   }
  
   render() {
@@ -136,7 +143,6 @@ class ResultsPage extends Component {
             <Controls breweryCities={this.state.breweryCities} 
                       beerStyles={this.state.beerStyles}
                       beerIbus={this.state.beerIbus}
-                      filterSelections={this.state.filterSelections}
                       updateFilterSelection={this.updateFilterSelection}
             />
             <BreweryList filteredBreweries={this.state.filteredBreweries} 

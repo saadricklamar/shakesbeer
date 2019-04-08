@@ -7,7 +7,6 @@ import ResultsPage from './ResultsPage.js';
 class App extends Component {
   constructor() {
     super();
-
     this.state = {
       beers: [],
       breweries: [],
@@ -50,20 +49,13 @@ class App extends Component {
   
   render() {
     let page;
+    
     if (this.state.beers.length === 0 || this.state.breweries.length === 0) {
       page = <img className='loading' src='./images/spinner.gif' alt='loading icon'/>
     } else if (this.state.showWelcomeScreen) {
-      page = <WelcomePage dataset={this.state.dataset} 
-                          breweries={this.state.breweries}
-                          beers={this.state.beers} 
-                          chooseState={this.chooseState}
-             />
+      page = <WelcomePage dataset={this.state.dataset} chooseState={this.chooseState} />
     } else {
-      page = <ResultsPage selectedState={this.state.selectedState} 
-                          dataset={this.state.dataset}
-                          breweries={this.state.breweries} 
-                          beers={this.state.beers}
-             />
+      page = <ResultsPage selectedState={this.state.selectedState} dataset={this.state.dataset} />
     }
     return (<div>{page}</div>);
   }

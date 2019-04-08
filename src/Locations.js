@@ -6,7 +6,7 @@ class Locations extends Component {
     super(props);
     this.state = {
       dropDown: false,
-      usStates: this.props.breweries.reduce((acc, brewery) => {
+      usStates: this.props.dataset.reduce((acc, brewery) => {
         if(!acc.includes(brewery.state)) {
           acc.push(brewery.state)
         }
@@ -20,7 +20,7 @@ class Locations extends Component {
   }
 
   // getStateOptions = () => {
-  //   let statesList = this.props.breweries.reduce((acc, brewery) => {
+  //   let statesList = this.props.dataset.reduce((acc, brewery) => {
   //     if(!acc.includes(brewery.state)) {
   //       acc.push(brewery.state)
   //     }
