@@ -5,16 +5,15 @@ class Controls extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedCity: '',
     }
   }
 
   updateCity = (e) => {
-    this.props.updateFilterSelection('city', e.target.value); //will only need this if we go with parent props & filter
+    this.props.updateFilterSelection('city', e.target.value); 
+  }
 
-    // this.setState({selectedCity: e.target.value}, () => {
-    //   this.props.filterByCity(this.state.selectedCity);
-    // });
+  updateStyle = (e) => {
+    this.props.updateFilterSelection('style', e.target.value); 
   }
 
   render() {
@@ -25,6 +24,17 @@ class Controls extends Component {
         <option>All</option>
           {
             this.props.breweryCities.map(loc => {
+              return(
+                <option className='state-dropdown-options' key={loc}>{loc}</option>
+              )
+            })
+          }
+        </select>
+        <label htmlFor='style-filter' className='filter-label'>Style: </label>
+        <select className='filter' id='style-filter' onChange={this.updateStyle}>
+        <option>All</option>
+          {
+            this.props.beerStyles.map(loc => {
               return(
                 <option className='state-dropdown-options' key={loc}>{loc}</option>
               )
