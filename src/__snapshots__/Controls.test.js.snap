@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Controls Should match the snapshot 1`] = `
+<form
+  className="filter-area"
+>
+  <Filter
+    filterName="city-filter"
+    filterOptions={
+      Array [
+        1,
+        2,
+        3,
+        4,
+      ]
+    }
+    label="City: "
+    updateSelected={[Function]}
+  />
+  <Filter
+    filterName="style-filter"
+    filterOptions={
+      Array [
+        1,
+        2,
+        3,
+        4,
+      ]
+    }
+    label="Style: "
+    updateSelected={[Function]}
+  />
+  <Filter
+    filterName="ibu-filter"
+    label="Ibu: "
+    updateSelected={[Function]}
+  />
+</form>
+`;
