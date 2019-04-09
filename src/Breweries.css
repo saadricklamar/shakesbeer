@@ -1,0 +1,8 @@
+.brewery-header {
+  display: flex;
+  align-items: center;
+}
+
+.far {
+  margin-right: 10px;
+}
