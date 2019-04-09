@@ -43,7 +43,7 @@ li.state-dropdown-options {
   border-top: 1px solid gray;
 }
 
-li:hover {
+li.state-dropdown-options:hover {
   background: rgba(250, 209, 125, 0.85);
 }
 

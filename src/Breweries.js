@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Beer from "./Beer.js"
+import './Breweries.css'
 
 class Breweries extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Breweries extends Component {
     
     render() {
       return (
-        <div>
+        <div  class="brewery-label">
           <h2 onClick={this.getTarget}>{this.props.name}</h2>
           {
           this.state.dropDown ? (

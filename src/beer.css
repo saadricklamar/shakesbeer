@@ -1,0 +1,14 @@
+.beer-list {
+  padding: 20px;
+  border-bottom: 2px solid #f9a960;
+  color: white;
+}
+
+.beer-list-item {
+  list-style: none;
+  font-size: 18px;
+}
+
+.beer-list:hover {
+  border-bottom: 2px solid #f78f2f;
+}
