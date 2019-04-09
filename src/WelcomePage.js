@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 // import Locations from './Locations.js';
 import Autocomplete from './Autocomplete.js';
 import './WelcomePage.css';
-import { get } from 'https';
 
 class WelcomePage extends Component {
   constructor(props) {
