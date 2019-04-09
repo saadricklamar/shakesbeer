@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Beer from "./Beer.js"
-import './Breweries.css'
+import './Breweries.css';
+
 
 class Breweries extends Component {
   constructor(props) {
@@ -8,7 +9,8 @@ class Breweries extends Component {
     this.state = {
       dropDown: false,
       breweryName: '',
-      beerList: []
+      beerList: [],
+      favorite: false
     }
   }
 
@@ -29,11 +31,20 @@ class Breweries extends Component {
     toggleDropDown = () => {
       this.setState({dropDown: !this.state.dropDown})
     }
+
+    toggleFavorite = (e) => {
+      this.setState({favorite: !this.state.favorite});
+      e.target.classList.toggle('fas');
+    }
     
     render() {
+
       return (
-        <div  class="brewery-label">
-          <h2 onClick={this.getTarget}>{this.props.name}</h2>
+        <div>
+          <div className='brewery-header brewery-label'>
+            <i className='far fa-star' onClick={this.toggleFavorite}></i>
+            <h2 onClick={this.getTarget}>{this.props.name}</h2>
+          </div>
           {
           this.state.dropDown ? (
               this.state.beerList.map(beer => {
