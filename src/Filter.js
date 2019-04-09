@@ -9,7 +9,6 @@ class Filter extends Component {
   }
 
   render() {
-    console.log(this.props.filterOptions)
     return (
       <div>
         <label htmlFor={this.props.filterName} className='filter-label'>{this.props.label}</label>

@@ -27,6 +27,8 @@ class Controls extends Component {
         <Filter filterName="city-filter" label="City: " filterOptions={this.props.breweryCities} updateSelected={this.updateCity} />
         <Filter filterName="style-filter" label="Style: " filterOptions={this.props.beerStyles} updateSelected={this.updateStyle} />
         <Filter filterName="ibu-filter" label="Ibu: " filterOptions={this.props.beerIbus} updateSelected={this.updateIbu} />
+        {/* Add Filter for abv */}
+
         {/* <label htmlFor='city-filter' className='filter-label'>City: </label>
         <select className='filter' id='city-filter' onChange={this.updateCity}>
         <option>All</option>
