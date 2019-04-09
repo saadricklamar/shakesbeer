@@ -22,13 +22,13 @@ describe('Controls', () => {
         expect(wrapper).toMatchSnapshot()
     });
 
-    it('Should simulate an onChange event', () => {
-        wrapper.find('#city-filter').simulate('change', {target:{value: 'e'}});
-        expect(mockFunc).toBeCalled();
-    });
+    // it('Should simulate an onChange event', () => {
+    //     wrapper.find('#city-filter').simulate('change', {target:{value: 'e'}});
+    //     expect(mockFunc).toBeCalled();
+    // });
 
-    it('Should simulate an onChange event', ()=> {
-        wrapper.find('#style-filter').simulate('change', {target:{value: 'e'}});
-        expect(mockFunc).toBeCalled();
-    });
+    // it('Should simulate an onChange event', ()=> {
+    //     wrapper.find('#style-filter').simulate('change', {target:{value: 'e'}});
+    //     expect(mockFunc).toBeCalled();
+    // });
 });
