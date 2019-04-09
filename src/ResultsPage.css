@@ -8,11 +8,11 @@
 
 header {
   width: 100%;
-  background: #EB8240;
+  background: #f78f2f;
   display: flex;
   align-items: center;
-  border-top: solid 5px #EFA63B;
-  border-bottom: solid 5px #EFA63B;
+  border-top: solid 5px #f9a960;
+  border-bottom: solid 5px #f9a960;
 }
 
 header .logo {
@@ -39,6 +39,10 @@ main {
   margin: 0;
   padding: 10px 30px;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fef4e0;
 }
 
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Beer from "./Beer.js"
 import './Breweries.css';
 
+
 class Breweries extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +41,7 @@ class Breweries extends Component {
 
       return (
         <div>
-          <div className='brewery-header'>
+          <div className='brewery-header brewery-label'>
             <i className='far fa-star' onClick={this.toggleFavorite}></i>
             <h2 onClick={this.getTarget}>{this.props.name}</h2>
           </div>

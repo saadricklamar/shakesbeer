@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BeerDescription from './BeerDescription.js';
+import './beer.css';
 
 class Beer extends Component {
     constructor(props) {
@@ -32,8 +33,8 @@ class Beer extends Component {
     render() {
         return (
             <div>
-               <ul>
-                  <li onClick={this.getTarget}>{this.props.beerName}</li>
+               <ul class='beer-list'>
+                  <li class='beer-list-item' onClick={this.getTarget}>{this.props.beerName}</li>
                </ul>
                {
                    this.state.isDisplayed ? (
