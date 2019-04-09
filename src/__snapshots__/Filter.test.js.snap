@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter Should match the snapshot 1`] = `
+<div>
+  <label
+    className="filter-label"
+  />
+  <select
+    className="filter"
+    onChange={
+      Array [
+        1,
+        2,
+        3,
+        4,
+      ]
+    }
+  >
+    <option>
+      All
+    </option>
+    <option
+      className="state-dropdown-options"
+      key="1"
+    >
+      1
+    </option>
+    <option
+      className="state-dropdown-options"
+      key="2"
+    >
+      2
+    </option>
+    <option
+      className="state-dropdown-options"
+      key="3"
+    >
+      3
+    </option>
+    <option
+      className="state-dropdown-options"
+      key="4"
+    >
+      4
+    </option>
+  </select>
+</div>
+`;

@@ -9,16 +9,25 @@ exports[`WelcomePage Should match the snapshot 1`] = `
   >
     ShakesBeer
   </h1>
-  <Locations
-    chooseState={[MockFunction]}
-    dataset={
-      Array [
-        1,
-        2,
-        3,
-        4,
-      ]
-    }
-  />
+  <div
+    className="search-container"
+  >
+    <Autocomplete
+      chooseState={[MockFunction]}
+      dataset={
+        Array [
+          1,
+          2,
+          3,
+          4,
+        ]
+      }
+      suggestions={
+        Array [
+          undefined,
+        ]
+      }
+    />
+  </div>
 </div>
 `;
