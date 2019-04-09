@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Controls Should match the snapshot 1`] = `
+<form
+  className="nav"
+>
+  <label
+    className="filter-label"
+    htmlFor="city-filter"
+  >
+    City: 
+  </label>
+  <select
+    className="filter"
+    id="city-filter"
+    onChange={[Function]}
+  >
+    <option>
+      All
+    </option>
+    <option
+      className="state-dropdown-options"
+      key="1"
+    >
+      1
+    </option>
+    <option
+      className="state-dropdown-options"
+      key="2"
+    >
+      2
+    </option>
+    <option
+      className="state-dropdown-options"
+      key="3"
+    >
+      3
+    </option>
+    <option
+      className="state-dropdown-options"
+      key="4"
+    >
+      4
+    </option>
+  </select>
+  <label
+    className="filter-label"
+    htmlFor="style-filter"
+  >
+    Style: 
+  </label>
+  <select
+    className="filter"
+    id="style-filter"
+    onChange={[Function]}
+  >
+    <option>
+      All
+    </option>
+    <option
+      className="state-dropdown-options"
+      key="1"
+    >
+      1
+    </option>
+    <option
+      className="state-dropdown-options"
+      key="2"
+    >
+      2
+    </option>
+    <option
+      className="state-dropdown-options"
+      key="3"
+    >
+      3
+    </option>
+    <option
+      className="state-dropdown-options"
+      key="4"
+    >
+      4
+    </option>
+  </select>
+</form>
+`;
