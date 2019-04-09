@@ -6,28 +6,27 @@ class Locations extends Component {
     super(props);
     this.state = {
       dropDown: false,
-      usStates: this.props.dataset.reduce((acc, brewery) => {
-        if(!acc.includes(brewery.state)) {
-          acc.push(brewery.state)
-        }
-        return acc;
-      }, []).sort()
+      usStates: []
     }
+  }
+
+  componentWillMount() {
+    this.getStateOptions();
   }
 
   toggleDropDown = (e) => {
     this.setState({ dropDown: !this.state.dropDown });
   }
 
-  // getStateOptions = () => {
-  //   let statesList = this.props.dataset.reduce((acc, brewery) => {
-  //     if(!acc.includes(brewery.state)) {
-  //       acc.push(brewery.state)
-  //     }
-  //     return acc;
-  //   }, []).sort();
-  //   this.setState({ usStates: statesList });
-  // }
+  getStateOptions = () => {
+    let statesList = this.props.dataset.reduce((acc, brewery) => {
+      if(!acc.includes(brewery.state)) {
+        acc.push(brewery.state)
+      }
+      return acc;
+    }, []).sort();
+    this.setState({ usStates: statesList });
+  }
 
   render() {
     let displayClass = '';

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './ResultsPage.css';
 import Controls from './Controls.js'
 import BreweryList from './BreweryList.js'
+import './images/shakesbeerlogosmall.png';
 
 class ResultsPage extends Component {
   constructor(props) {
@@ -82,7 +83,7 @@ class ResultsPage extends Component {
   }
 
   refreshBreweryList = () => {
-    //reset page defaults
+    //reset page defaults, or whatever we need to do to get beer details to show and collapse on filter change
     this.setState({ filteredBreweries: [...this.state.stateBreweries] }, () => this.filterByCity());
   }
 
