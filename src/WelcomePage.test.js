@@ -9,9 +9,7 @@ describe('WelcomePage', () => {
     let wrapper;
     beforeEach(() => {
         wrapper = shallow(
-            <WelcomePage dataset={mockData} 
-                          breweries={mockData}
-                          beers={mockData} 
+            <WelcomePage dataset={mockData}  
                           chooseState={mockFunc}
              />
         )
@@ -20,4 +18,5 @@ describe('WelcomePage', () => {
     it('Should match the snapshot', () => {
         expect(wrapper).toMatchSnapshot()
     });
+    
 });
