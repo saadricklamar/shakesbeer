@@ -37,8 +37,8 @@ class Breweries extends Component {
           this.state.dropDown ? (
               this.state.beerList.map(beer => {
                   return <Beer beers={this.state.beerList}
-                                beerName={beer.name}
-                                key={beer.FIELD1}
+                               beerName={beer.name}
+                               key={beer.FIELD1}
                           />
               })
           ) : (null)

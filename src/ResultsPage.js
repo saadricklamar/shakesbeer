@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Breweries from './Breweries.js';
 import './ResultsPage.css';
 import Controls from './Controls.js'
 import BreweryList from './BreweryList.js'
@@ -14,6 +13,7 @@ class ResultsPage extends Component {
       breweryCities: [],
       beerStyles: [],
       beerIbus: [],
+      //beerAbvs
       citySelection: 'All', 
       styleSelection: 'All',
       ibuSelection: 'All', 
@@ -34,6 +34,7 @@ class ResultsPage extends Component {
       this.getCities();
       this.getStyles();
       this.getIbus();
+      //this.getAbvs
     })
   }
 
@@ -117,7 +118,6 @@ class ResultsPage extends Component {
         let breweryIbus = brewery.beers.map(beer => {
           return `${Math.round(beer.ibu / 10) * 10}-${(Math.round(beer.ibu / 10) * 10) + 9}`;
         });
-        console.log(breweryIbus);
         if(breweryIbus.includes(this.state.ibuSelection)) {
           acc.push(brewery);
         }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-// import {breweries, beers} from './data.js';
 import WelcomePage from './WelcomePage.js';
 import ResultsPage from './ResultsPage.js';
 
@@ -49,7 +48,7 @@ class App extends Component {
   
   render() {
     let page;
-    
+
     if (this.state.beers.length === 0 || this.state.breweries.length === 0) {
       page = <img className='loading' src='./images/spinner.gif' alt='loading icon'/>
     } else if (this.state.showWelcomeScreen) {
