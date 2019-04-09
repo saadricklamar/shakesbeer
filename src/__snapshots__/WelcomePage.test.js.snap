@@ -10,14 +10,6 @@ exports[`WelcomePage Should match the snapshot 1`] = `
     ShakesBeer
   </h1>
   <Locations
-    breweries={
-      Array [
-        1,
-        2,
-        3,
-        4,
-      ]
-    }
     chooseState={[MockFunction]}
     dataset={
       Array [
