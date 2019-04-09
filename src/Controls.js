@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Filter from './Filter.js';
 import './Controls.css';
 
 class Controls extends Component {
@@ -16,10 +17,17 @@ class Controls extends Component {
     this.props.updateFilterSelection('style', e.target.value); 
   }
 
+  updateIbu = (e) => {
+    this.props.updateFilterSelection('ibu', e.target.value); 
+  }
+
   render() {
     return (
-      <form className="nav">
-        <label htmlFor='city-filter' className='filter-label'>City: </label>
+      <form className="filter-area">
+        <Filter filterName="city-filter" label="City: " filterOptions={this.props.breweryCities} updateSelected={this.updateCity} />
+        <Filter filterName="style-filter" label="Style: " filterOptions={this.props.beerStyles} updateSelected={this.updateStyle} />
+        <Filter filterName="ibu-filter" label="Ibu: " filterOptions={this.props.beerIbus} updateSelected={this.updateIbu} />
+        {/* <label htmlFor='city-filter' className='filter-label'>City: </label>
         <select className='filter' id='city-filter' onChange={this.updateCity}>
         <option>All</option>
           {
@@ -41,6 +49,17 @@ class Controls extends Component {
             })
           }
         </select>
+        <label htmlFor='ibu-filter' className='filter-label'>ibu: </label>
+        <select className='filter' id='ibu-filter' onChange={this.updateIbu}>
+        <option>All</option>
+          {
+            this.props.beerIbus.map(loc => {
+              return(
+                <option className='state-dropdown-options' key={loc}>{loc}</option>
+              )
+            })
+          }
+        </select> */}
       </form>
     )
   }

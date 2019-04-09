@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Breweries from './Breweries.js';
 import './ResultsPage.css';
 import Controls from './Controls.js'
 import BreweryList from './BreweryList.js'
@@ -10,15 +9,15 @@ class ResultsPage extends Component {
 
     this.state = {
       stateBreweries: [],
+      filteredBreweries: [],
       breweryCities: [],
       beerStyles: [],
+      beerIbus: [],
+      //beerAbvs
       citySelection: 'All', 
       styleSelection: 'All',
       ibuSelection: 'All', 
-      abvSelection: 'All',
-      filterSelections: [this.citySelection, this.styleSelection, this.ibuSelection, this.abvSelection],
-      filteredBreweries: [],
-      filterOptions: {cities: [], styles: [], ibus: [], abvs: []}
+      abvSelection: 'All'
     }
   }
 
@@ -31,9 +30,11 @@ class ResultsPage extends Component {
       return brewery.state === this.props.selectedState;
     })
     this.setState({ stateBreweries: stateBreweries }, () => {
-      this.displayMatchingBreweries();
+      this.refreshBreweryList();
       this.getCities();
       this.getStyles();
+      this.getIbus();
+      //this.getAbvs
     })
   }
 
@@ -51,7 +52,6 @@ class ResultsPage extends Component {
     let styles = this.state.stateBreweries.reduce((acc, brewery) => {
       brewery.beers.forEach(beer => {
         if(!acc.includes(beer.style) && beer.style !== '') {
-          
           acc.push(beer.style)
         }
       })
@@ -61,61 +61,76 @@ class ResultsPage extends Component {
     this.setState({ beerStyles: styles });
   } 
 
+  getIbus = () => {
+    let ibus = this.state.stateBreweries.reduce((acc, brewery) => {
+      brewery.beers.forEach(beer => {
+        const ibuMinRange = Math.round(beer.ibu / 10) * 10;
+        const ibuOption = `${ibuMinRange}-${ibuMinRange + 9}`;
+        if(!acc.includes(ibuOption) && beer.ibu !== null) {
+          acc.push(ibuOption);
+        }
+      })
+      return acc;
+    }, []).sort().sort((a, b) => a.length - b.length);
+    this.setState({ beerIbus: ibus });
+  }
+
   updateFilterSelection = (filterName, value) => {
     const propertyName = `${filterName}Selection`;
     this.setState({ [propertyName]: value });
-    this.displayMatchingBreweries();
+    this.refreshBreweryList();
   }
 
-  // filterbyCity = selected => {
-  //   let breweries = this.state.stateBreweries.filter(brewery => {
-  //     if (selected === 'All') {
-  //       return brewery;
-  //     } else {
-  //       return brewery.city === selected;
-  //     }
-  //   })
-  //   this.setState({ filteredBreweries: breweries });
-  // }
-
-  displayMatchingBreweries = () => {
+  refreshBreweryList = () => {
     //reset page defaults
-    this.setState({ filteredBreweries: [...this.state.stateBreweries] }, () => this.runFilters());
+    this.setState({ filteredBreweries: [...this.state.stateBreweries] }, () => this.filterByCity());
   }
-
-  runFilters = property => {
-    this.filterByCity();
-    this.filterByBeerProperty('style');
-    // this.filterByBeerProperty('ibu');
-    // this.filterByBeerProperty('abv');
-  } 
 
   filterByCity = () => {
     if (this.state.citySelection !== 'All') {
       let filterResults = this.state.filteredBreweries.filter(brewery => {
         return brewery.city === this.state.citySelection;
       });
-      this.setState({ filteredBreweries: filterResults });
+      this.setState({ filteredBreweries: filterResults }, () => this.filterByStyle());
+    } else {
+      this.filterByStyle()
     }
   }
 
-  filterByBeerProperty = property => {
-    if (this.state[`${property}Selection`] !== 'All') {
+  filterByStyle = () => {
+    if (this.state.styleSelection !== 'All') {
       let filterResults = this.state.filteredBreweries.reduce((acc, brewery) => {
-        let breweryProperty = brewery.beers.map(beer => beer[property])
-        if(breweryProperty.includes(this.state[`${property}Selection`])) {
+        let breweryStyles = brewery.beers.map(beer => beer.style);
+        if(breweryStyles.includes(this.state.styleSelection)) {
           acc.push(brewery);
         }
         return acc;
       }, [])
-      this.setState({filteredBreweries: filterResults});
-
+      this.setState({filteredBreweries: filterResults}, () => this.filterByIbu());
+    } else {
+      this.filterByIbu();
     }
   }
 
+  filterByIbu = () => {
+    if (this.state.ibuSelection !== 'All') {
+      let filterResults = this.state.filteredBreweries.reduce((acc, brewery) => {
+        let breweryIbus = brewery.beers.map(beer => {
+          return `${Math.round(beer.ibu / 10) * 10}-${(Math.round(beer.ibu / 10) * 10) + 9}`;
+        });
+        if(breweryIbus.includes(this.state.ibuSelection)) {
+          acc.push(brewery);
+        }
+        return acc;
+      }, [])
+      this.setState({filteredBreweries: filterResults}); //add filter by ABV to callback
+    } 
+    // else {
+    //   this.filterByAbv()
+    // }
+  }
  
   render() {
-    console.log(this.state.beerStyles);
     return (
       <div className="results-page">
         <header>
@@ -127,8 +142,7 @@ class ResultsPage extends Component {
           <div className="brew-cards">
             <Controls breweryCities={this.state.breweryCities} 
                       beerStyles={this.state.beerStyles}
-                      filterByCity={this.filterByCity}
-                      filterSelections={this.state.filterSelections}
+                      beerIbus={this.state.beerIbus}
                       updateFilterSelection={this.updateFilterSelection}
             />
             <BreweryList filteredBreweries={this.state.filteredBreweries} 
