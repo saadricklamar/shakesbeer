@@ -1,17 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
 # Overview
 
 Need a beer, but not sure where to find one?! *ShakesBeer* will locate your next brewery and beer. Pick a state, filter by city, beer style, or even ibu. Cheers! 
@@ -23,7 +9,8 @@ Need a beer, but not sure where to find one?! *ShakesBeer* will locate your next
 Run **npm install** in your terminal
 
 # Desktop View
-![ShakesBeerHomePage]()
+
+![ShakesBeerHomePage](https://user-images.githubusercontent.com/42000931/55891725-4a274e00-5b72-11e9-9e27-3b2a4b1e8a35.png)
 
 
 # Learning Goals
