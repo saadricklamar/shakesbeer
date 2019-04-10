@@ -2,7 +2,6 @@
   background: white;
   display: block;
   margin: 0;
-  /* margin-left: 50px; */
   color: black;
 }
 
@@ -16,8 +15,8 @@ header {
 }
 
 header .logo {
-  height: 100px;
-  width: 80px;
+  height: 80px;
+  width: 90px;
   padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 5px;

@@ -5,7 +5,7 @@ class Filter extends Component {
 
   render() {
     return (
-      <div class="filter-container">
+      <div className="filter-container">
         <label htmlFor={this.props.filterName} className='filter-label'>{this.props.label}</label>
         <select className='filter' id={this.props.filterName} onChange={this.props.updateSelected}>
         <option>All</option>

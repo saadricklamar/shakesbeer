@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import WelcomePage from './WelcomePage.js';
 import ResultsPage from './ResultsPage.js';
-import './images/spinner.gif';
+import spinner from './images/spinner.gif';
 
 class App extends Component {
   constructor() {
@@ -51,12 +51,13 @@ class App extends Component {
     let page;
 
     if (this.state.beers.length === 0 || this.state.breweries.length === 0) {
-      page = <img className='loading' src='./images/spinner.gif' alt='loading icon'/>
+      page = <div className='loading-page'><img className='loading' src={spinner} alt='loading icon'/></div>
     } else if (this.state.showWelcomeScreen) {
       page = <WelcomePage dataset={this.state.dataset} chooseState={this.chooseState} />
     } else {
       page = <ResultsPage selectedState={this.state.selectedState} dataset={this.state.dataset} />
     }
+    
     return (<div>{page}</div>);
   }
 }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Locations from './Locations.js';
 import Autocomplete from './Autocomplete.js';
 import './WelcomePage.css';
 
@@ -36,7 +35,6 @@ class WelcomePage extends Component {
                         dataset={this.props.dataset} 
                         chooseState={this.props.chooseState}
           />
-          {/* <Locations dataset={this.props.dataset} chooseState={this.props.chooseState} /> */}
         </div>
       </div>
     );

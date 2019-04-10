@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './ResultsPage.css';
 import Controls from './Controls.js'
 import BreweryList from './BreweryList.js'
-import './images/shakesbeerlogosmall.png';
+import logo from './images/shakesbeerlogosmall.png';
+
+let starredData = JSON.parse(localStorage.getItem('userStarredList')) || [''];
 
 class ResultsPage extends Component {
   constructor(props) {
@@ -11,14 +13,17 @@ class ResultsPage extends Component {
     this.state = {
       stateBreweries: [],
       filteredBreweries: [],
+      starredBreweries: starredData,
       breweryCities: [],
       beerStyles: [],
       beerIbus: [],
       citySelection: 'All', 
       styleSelection: 'All',
-      ibuSelection: 'All', 
-      abvSelection: 'All'
+      ibuSelection: 'All',
+      viewingStarred: false
     }
+
+    this.updateStarredList = this.updateStarredList.bind(this);
   }
 
   componentWillMount() {
@@ -80,6 +85,12 @@ class ResultsPage extends Component {
     this.refreshBreweryList();
   }
 
+  toggleStarView = () => {
+    this.setState({ viewingStarred: !this.state.viewingStarred }, () => {
+      this.refreshBreweryList();
+    });
+  }
+
   refreshBreweryList = () => {
     //reset page defaults, or whatever we need to do to get beer details to show and collapse on filter change
     this.setState({ filteredBreweries: [...this.state.stateBreweries] }, () => this.filterByCity());
@@ -92,7 +103,7 @@ class ResultsPage extends Component {
       });
       this.setState({ filteredBreweries: filterResults }, () => this.filterByStyle());
     } else {
-      this.filterByStyle()
+      this.filterByStyle();
     }
   }
 
@@ -117,23 +128,49 @@ class ResultsPage extends Component {
         let breweryIbus = brewery.beers.map(beer => {
           return `${Math.round(beer.ibu / 10) * 10}-${(Math.round(beer.ibu / 10) * 10) + 9}`;
         });
-        if(breweryIbus.includes(this.state.ibuSelection)) {
+        if (breweryIbus.includes(this.state.ibuSelection)) {
           acc.push(brewery);
         }
         return acc;
-      }, [])
-      this.setState({filteredBreweries: filterResults}); //add filter by ABV to callback
+      }, []);
+      this.setState({ filteredBreweries: filterResults }, () => this.filterByStarred());
+    } else {
+      this.filterByStarred();
+    }
+  }
+
+  updateStarredList = (name, change) => {
+    // let list = JSON.parse(localStorage.getItem('userStarredBreweries')) || [];
+    let list = this.state.starredBreweries ? [...this.state.starredBreweries] : [];
+
+    console.log(`list: ${list}`);
+
+    if (change === 'add' && list.length > 0) {
+      list.push(name)
+    } else if (list.length > 0) {
+      list.splice(this.state.starredBreweries.indexOf(name), 1);
     } 
-    // else {
-    //   this.filterByAbv()
-    // }
+    this.setState({ starredBreweries: list }, () => {
+      localStorage.setItem('userStarredList', JSON.stringify(this.state.starredBreweries))
+    });
+  }
+
+  filterByStarred = () => {
+    if (this.state.viewingStarred === true) {
+      let filterResults = this.state.filteredBreweries.filter(brewery => {
+        console.log(brewery.name);
+        return this.state.starredBreweries.includes(brewery.name);
+      })
+      this.setState({ filteredBreweries: filterResults })
+    }
   }
  
   render() {
+    console.log(`Viewing stars: ${this.state.viewingStarred}`);
     return (
       <div className="results-page">
         <header>
-          <img src="./images/shakesbeerlogosmall.png" alt="shakesbeer logo"/>
+          <img className='logo' src={logo} alt="shakesbeer logo"/>
           <h1 className="results-header">ShakesBeer</h1>
         </header>
         <main>
@@ -143,9 +180,14 @@ class ResultsPage extends Component {
                       beerStyles={this.state.beerStyles}
                       beerIbus={this.state.beerIbus}
                       updateFilterSelection={this.updateFilterSelection}
+                      toggleStarView={this.toggleStarView}
             />
             <BreweryList filteredBreweries={this.state.filteredBreweries} 
                          dataset={this.props.dataset}
+                        //  addStarredBrewery={this.addStarredBrewery}
+                        //  removeStarredBrewery={this.removeStarredBrewery}
+                         updateStarredList={this.updateStarredList}
+                         starredBreweries={this.state.starredBreweries}
             />
           </div>
         </main>

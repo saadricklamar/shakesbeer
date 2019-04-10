@@ -34,10 +34,14 @@
 
 .fa-star {
   font-size: 20px;
-  color: white;
+  color: #ffd68ba8;
   flex: 1;
 }
 
 .fa-star:hover {
-  color: #f7e2ba;
+  color: white;
+}
+
+.fas {
+  color: white;
 }
