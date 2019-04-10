@@ -1,6 +1,6 @@
 # ShakesBeer
 
-Need a beer, but not sure where to find one?! *ShakesBeer* will locate your next brewery and beer. Pick a state, filter by city, beer style, or even ibu. Cheers! 
+Need a beer, but not sure where to find one?! *ShakesBeer* will locate your next beer and brewery. Pick a state, filter by city, beer style, or ibu. Really love a beer?! Well, then favorite it. Cheers! 
 
 # Installation
 
