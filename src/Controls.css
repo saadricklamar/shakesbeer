@@ -1,3 +1,10 @@
 .filter-area {
   display: flex;
+  align-items: center;
+}
+
+#fav-filter {
+  width: 40px;
+  padding: 10px;
+  text-align: center;
 }

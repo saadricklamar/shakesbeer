@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './ResultsPage.css';
 import Controls from './Controls.js'
 import BreweryList from './BreweryList.js'
-import './images/shakesbeerlogosmall.png';
+import logo from './images/shakesbeerlogosmall.png';
 
 let starredData = JSON.parse(localStorage.getItem('userStarredBreweries')) || [];
 
@@ -169,7 +169,7 @@ class ResultsPage extends Component {
     return (
       <div className="results-page">
         <header>
-          <img src="./images/shakesbeerlogosmall.png" alt="shakesbeer logo"/>
+          <img className='logo' src={logo} alt="shakesbeer logo"/>
           <h1 className="results-header">ShakesBeer</h1>
         </header>
         <main>

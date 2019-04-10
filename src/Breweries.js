@@ -45,7 +45,7 @@ class Breweries extends Component {
     render() {
       let favClass;
       this.state.favorite ?  favClass = 'fas' : favClass = '';
-
+      console.log(this.state.favorite);
       return (
         <div className='brewery-label'>
           <div className='brewery-header'>
