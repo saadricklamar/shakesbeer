@@ -24,7 +24,8 @@ If any alterations to the code are made, then the page will reload.
 
 # See Our User Stories
 
-[UserStories](
+[UserStories](https://gist.github.com/saadricklamar/053a4565c323b407f0c72db0861e726a)
+
 # Tech/Frameworks Used
 
 * React
