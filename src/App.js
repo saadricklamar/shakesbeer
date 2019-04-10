@@ -57,7 +57,7 @@ class App extends Component {
     } else {
       page = <ResultsPage selectedState={this.state.selectedState} dataset={this.state.dataset} />
     }
-    
+
     return (<div>{page}</div>);
   }
 }
