@@ -20,8 +20,11 @@ If any alterations to the code are made, then the page will reload.
 
 # Breweries Page
 
-![StateBreweryHomePage](https://user-images.githubusercontent.com/42000931/55915337-b8860380-5ba6-11e9-9850-c9124f587d3d.png)
+![statebrew](https://user-images.githubusercontent.com/42000931/55915609-27fbf300-5ba7-11e9-8e43-58f6eaec16e8.png)
 
+# See Our User Stories
+
+[UserStories](
 # Tech/Frameworks Used
 
 * React
@@ -29,9 +32,10 @@ If any alterations to the code are made, then the page will reload.
 * JSX
 * fetch API
 * Testing with Enzyme & Jest
+
 # Learning Goals
 
-The main goal of building Shakebeer was to get familiar with React and how to test React with Enzyme and Jest. We learned how React components interact with one another, how to test those components, and how to use Sass to write more efficient CSSS. The app was built from scratch and utilizes array-prototype methods to extract and manipulate data. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The main goal of building Shakebeer was to get familiar with React and how to test React with Enzyme and Jest. We learned how React components interact with one another, how to test those components, and how to use Sass to write more efficient CSS. The app was built from scratch and utilizes array-prototype methods to extract and manipulate data. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Contributors
 [Lynne Rang](https://github.com/lynnerang),
