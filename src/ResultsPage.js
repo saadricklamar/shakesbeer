@@ -128,13 +128,15 @@ class ResultsPage extends Component {
         let breweryIbus = brewery.beers.map(beer => {
           return `${Math.round(beer.ibu / 10) * 10}-${(Math.round(beer.ibu / 10) * 10) + 9}`;
         });
-        if(breweryIbus.includes(this.state.ibuSelection)) {
+        if (breweryIbus.includes(this.state.ibuSelection)) {
           acc.push(brewery);
         }
         return acc;
-      }, [])
-      this.setState({ filteredBreweries: filterResults }, () => this.filterByStarred()); 
-    } 
+      }, []);
+      this.setState({ filteredBreweries: filterResults }, () => this.filterByStarred());
+    } else {
+      this.filterByStarred();
+    }
   }
 
   updateStarredList = (name, change) => {
@@ -142,7 +144,6 @@ class ResultsPage extends Component {
     let list = [...this.state.starredBreweries];
 
     console.log(`list: ${list}`);
-    console.log(`name: ${name}`);
 
     if (change === 'add' && list.length > 0) {
       list.push(name)
@@ -156,8 +157,9 @@ class ResultsPage extends Component {
   }
 
   filterByStarred = () => {
-    if (this.state.viewingStarred) {
+    if (this.state.viewingStarred === true) {
       let filterResults = this.state.filteredBreweries.filter(brewery => {
+        console.log(brewery.name);
         return this.state.starredBreweries.includes(brewery.name);
       })
       this.setState({ filteredBreweries: filterResults })
@@ -165,6 +167,7 @@ class ResultsPage extends Component {
   }
  
   render() {
+    console.log(`Viewing stars: ${this.state.viewingStarred}`);
     return (
       <div className="results-page">
         <header>

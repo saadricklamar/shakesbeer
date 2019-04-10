@@ -9,8 +9,7 @@ class Breweries extends Component {
     this.state = {
       dropDown: false,
       breweryName: this.props.name || '',
-      beerList: [],
-      favorite: this.props.starredBreweries.includes(this.breweryName)
+      beerList: []
     }
 
     this.toggleFavorite = this.toggleFavorite.bind(this);
@@ -34,13 +33,6 @@ class Breweries extends Component {
       this.setState({dropDown: !this.state.dropDown})
     }
 
-    // toggleFavorite = () => {
-    //   this.setState({favorite: !this.state.favorite}, () => {
-    //     this.state.favorite ? this.props.updateStarredBrewery(this.state.breweryName, 'add')
-    //     : this.props.updateStarredBrewery(this.state.breweryName)
-    //   });
-    // }
-
     toggleFavorite = () => {
         !this.props.starredBreweries.includes(this.props.name) 
         ? this.props.updateStarredList(this.state.breweryName, 'add')
@@ -48,7 +40,6 @@ class Breweries extends Component {
     }
     
     render() {
-      console.log(this.props.starredBreweries.includes(this.props.name));
       // let favClass = this.state.favorite ? 'fas far fa-star' : 'far fa-star'
       let favClass = this.props.starredBreweries.includes(this.props.name) 
       ? 'far fa-star fas' 
