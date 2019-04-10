@@ -19,8 +19,7 @@ class BreweryList extends Component {
               <Breweries name={brewery.name}
                          dataset={this.props.dataset}
                          starredBreweries={this.props.starredBreweries}
-                         addStarredBrewery={this.props.addStarredBrewery}
-                         removeStarredBrewery={this.props.removeStarredBrewery}
+                         updateStarredList={this.props.updateStarredList}
               />
             )
           })

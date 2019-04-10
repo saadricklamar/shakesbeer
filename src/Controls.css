@@ -6,6 +6,10 @@
   width: 1000px;
 }
 
+.fav-filter-area {
+  text-align: right;
+}
+
 #fav-filter {
   width: 40px;
   padding: 10px;

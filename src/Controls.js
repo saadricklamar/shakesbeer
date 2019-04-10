@@ -18,24 +18,29 @@ class Controls extends Component {
 
   render() {
     return (
-      <form className="filter-area">
-        <Filter filterName="city-filter" 
-                label="City: " 
+      <form className='filter-area'>
+        <Filter filterName='city-filter' 
+                label='City: ' 
                 filterOptions={this.props.breweryCities} 
                 updateSelected={this.updateCity} 
         />
-        <Filter filterName="style-filter" 
-                label="Style: " 
+        <Filter filterName='style-filter' 
+                label='Style: ' 
                 filterOptions={this.props.beerStyles} 
                 updateSelected={this.updateStyle} 
         />
-        <Filter filterName="ibu-filter" 
-                label="Ibu: " 
+        <Filter filterName='ibu-filter' 
+                label='Ibu: ' 
                 filterOptions={this.props.beerIbus} 
                 updateSelected={this.updateIbu} 
         />
-        <label htmlFor='fav-filter'>Star Filter: </label>
-        <input type='checkbox' id='fav-filter' onClick={this.toggleStarView} />
+        <div className='fav-filter-area'>
+          <label htmlFor='fav-filter'>Starred Only: </label>
+          <input type='checkbox' 
+                id='fav-filter' 
+                onClick={this.props.toggleStarView} 
+          />
+        </div>
       </form>
     )
   }

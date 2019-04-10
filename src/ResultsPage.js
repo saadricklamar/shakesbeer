@@ -4,7 +4,7 @@ import Controls from './Controls.js'
 import BreweryList from './BreweryList.js'
 import logo from './images/shakesbeerlogosmall.png';
 
-let starredData = JSON.parse(localStorage.getItem('userStarredBreweries')) || [];
+let starredData = JSON.parse(localStorage.getItem('userStarredList')) || ['hi'];
 
 class ResultsPage extends Component {
   constructor(props) {
@@ -23,8 +23,7 @@ class ResultsPage extends Component {
       viewingStarred: false
     }
 
-    this.addStarredBrewery = this.addStarredBrewery.bind(this);
-    this.removeStarredBrewery = this.removeStarredBrewery.bind(this);
+    this.updateStarredList = this.updateStarredList.bind(this);
   }
 
   componentWillMount() {
@@ -138,22 +137,22 @@ class ResultsPage extends Component {
     } 
   }
 
-  addStarredBrewery = name => {
-    const list = [...this.state.starredBreweries];
-    list.push(name);
-    this.setState({ starredBreweries: list }, () => {
-      localStorage.setItem('userStarredBreweries', JSON.stringify(this.state.starredBreweries))
-    });
-  }
+  updateStarredList = (name, change) => {
+    // let list = JSON.parse(localStorage.getItem('userStarredBreweries')) || [];
+    let list = [...this.state.starredBreweries];
 
-  removeStarredBrewery = name => {
-    const list = [...this.state.starredBreweries];
-    const breweryIndex = this.state.starredBreweries.indexOf(this.state.starredBreweries
-      .find(brewery => brewery.name === name));
-    list.splice(breweryIndex, 1);
-    this.setState({ starredBreweries: list}, () => {
-      localStorage.setItem('userStarredBreweries', JSON.stringify(this.state.starredBreweries));
-    })
+    console.log(`list: ${list}`);
+    console.log(`name: ${name}`);
+
+    if (change === 'add' && list.length > 0) {
+      list.push(name)
+    } else if (list.length > 0) {
+      list.splice(this.state.starredBreweries.indexOf(name), 1);
+    } 
+  
+    this.setState({ starredBreweries: list }, () => {
+      localStorage.setItem('userStarredList', JSON.stringify(this.state.starredBreweries))
+    });
   }
 
   filterByStarred = () => {
@@ -183,8 +182,9 @@ class ResultsPage extends Component {
             />
             <BreweryList filteredBreweries={this.state.filteredBreweries} 
                          dataset={this.props.dataset}
-                         addStarredBrewery={this.addStarredBrewery}
-                         removeStarredBrewery={this.removeStarredBrewery}
+                        //  addStarredBrewery={this.addStarredBrewery}
+                        //  removeStarredBrewery={this.removeStarredBrewery}
+                         updateStarredList={this.updateStarredList}
                          starredBreweries={this.state.starredBreweries}
             />
           </div>

@@ -34,15 +34,26 @@ class Breweries extends Component {
       this.setState({dropDown: !this.state.dropDown})
     }
 
+    // toggleFavorite = () => {
+    //   this.setState({favorite: !this.state.favorite}, () => {
+    //     this.state.favorite ? this.props.updateStarredBrewery(this.state.breweryName, 'add')
+    //     : this.props.updateStarredBrewery(this.state.breweryName)
+    //   });
+    // }
+
     toggleFavorite = () => {
-      this.setState({favorite: !this.state.favorite}, () => {
-        this.state.favorite ? this.props.addStarredBrewery(this.state.breweryName)
-        : this.props.removeStarredBrewery(this.state.breweryName)
-      });
+        !this.props.starredBreweries.includes(this.props.name) 
+        ? this.props.updateStarredList(this.state.breweryName, 'add')
+        : this.props.updateStarredList(this.state.breweryName)
     }
     
     render() {
-      let favClass = this.state.favorite ? 'fas far fa-star' : 'far fa-star'
+      console.log(this.props.starredBreweries.includes(this.props.name));
+      // let favClass = this.state.favorite ? 'fas far fa-star' : 'far fa-star'
+      let favClass = this.props.starredBreweries.includes(this.props.name) 
+      ? 'far fa-star fas' 
+      : 'far fa-star ';
+
       return (
         <div className='brewery-label'>
           <div className='brewery-header'>
