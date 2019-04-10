@@ -11,8 +11,7 @@ describe('Controls', () => {
         wrapper = shallow (
             <Controls breweryCities={mockData} 
                       beerStyles={mockData}
-                      filterByCity={mockFunc}
-                      filterSelections={mockData}
+                      beerIbus={mockFunc}
                       updateFilterSelection={mockFunc}
             />
         )
@@ -22,13 +21,21 @@ describe('Controls', () => {
         expect(wrapper).toMatchSnapshot()
     });
 
-    // it('Should simulate an onChange event', () => {
-    //     wrapper.find('#city-filter').simulate('change', {target:{value: 'e'}});
-    //     expect(mockFunc).toBeCalled();
-    // });
+    it('Should simulate an onChange event', () => {
+        const mockEvent = {target:{value:'e'}}
+        wrapper.instance().updateCity(mockEvent)
+        expect(mockFunc).toHaveBeenCalledWith('city', 'e')
+    });
 
-    // it('Should simulate an onChange event', ()=> {
-    //     wrapper.find('#style-filter').simulate('change', {target:{value: 'e'}});
-    //     expect(mockFunc).toBeCalled();
-    // });
+    it('Should simulate an onChange event', () => {
+        const mockEvent = {target:{value:'e'}}
+        wrapper.instance().updateStyle(mockEvent)
+        expect(mockFunc).toHaveBeenCalledWith('style', 'e')
+    });
+
+    it('Should simulate an onChange event', () => {
+        const mockEvent = {target:{value:'e'}}
+        wrapper.instance().updateIbu(mockEvent)
+        expect(mockFunc).toHaveBeenCalledWith('ibu', 'e')
+    });
 });

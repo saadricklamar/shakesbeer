@@ -33,8 +33,8 @@ class Beer extends Component {
     render() {
         return (
             <div>
-               <ul class='beer-list'>
-                  <li class='beer-list-item' onClick={this.getTarget}>{this.props.beerName}</li>
+               <ul className='beer-list'>
+                  <li className='beer-list-item' onClick={this.getTarget}>{this.props.beerName}</li>
                </ul>
                {
                    this.state.isDisplayed ? (
