@@ -152,4 +152,5 @@ describe('Breweries', () => {
         wrapper.setState({favorite: true})
         expect(wrapper).toMatchSnapshot();
     });
-})
+});
+

@@ -10,7 +10,7 @@ describe('WelcomePage', () => {
     beforeEach(() => {
         wrapper = shallow(
             <WelcomePage dataset={mockData} 
-                          chooseState={mockFunc}
+                         chooseState={mockFunc}
              />
         )
     });
