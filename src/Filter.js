@@ -1,25 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Filter.css';
 
-class Filter extends Component {
-
-  render() {
-    return (
-      <div className="filter-container">
-        <label htmlFor={this.props.filterName} className='filter-label'>{this.props.label}</label>
-        <select className='filter' id={this.props.filterName} onChange={this.props.updateSelected}>
-        <option>All</option>
-          {
-            this.props.filterOptions.map(loc => {
-              return(
-                <option className='state-dropdown-options' key={loc}>{loc}</option>
-              )
-            })
-          }
-        </select>
-      </div>
-    )
-  }
+function Filter(props) {
+  return (
+    <div className="filter-container">
+      <label htmlFor={props.filterName} className='filter-label'>{props.label}</label>
+      <select className='filter' id={props.filterName} onChange={props.updateSelected}>
+      <option>All</option>
+        {
+          props.filterOptions.map(loc => {
+            return(
+              <option className='state-dropdown-options' key={loc}>{loc}</option>
+            )
+          })
+        }
+      </select>
+    </div>
+  )
 }
 
 export default Filter;
