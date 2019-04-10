@@ -12,7 +12,7 @@ In the project directory, please run:
 
 npm start will run the app in the development mode. When the server is running, open http://localhost:3000 to view it in the browser.
 
-If any alterations to the code are made, then the page will reload.
+If any alterations to the code are made, then the page will refresh.
 
 # Home Page
 
