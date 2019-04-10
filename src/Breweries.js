@@ -18,7 +18,7 @@ class Breweries extends Component {
       this.setState({breweryName: e.target.innerText}, () => {
         this.findBeers(); 
       }) 
-      this.toggleDropDown()
+      this.toggleDropDown();
     }
 
     findBeers = () => {
@@ -32,18 +32,17 @@ class Breweries extends Component {
       this.setState({dropDown: !this.state.dropDown})
     }
 
-    toggleFavorite = (e) => {
+    toggleFavorite = () => {
       this.setState({favorite: !this.state.favorite});
-      e.target.classList.toggle('fas');
     }
     
     render() {
-
+      let favClass = this.state.favorite ? 'fas far fa-star' : 'far fa-star'
       return (
         <div className='brewery-label'>
           <div className='brewery-header'>
-            <i className='far fa-star' onClick={this.toggleFavorite}></i>
-            <h2 onClick={this.getTarget} >{this.props.name}</h2>
+            <i className={favClass} onClick={this.toggleFavorite}></i>
+            <h2 onClick={this.getTarget}>{this.props.name}</h2>
           </div>
           {
           this.state.dropDown ? (

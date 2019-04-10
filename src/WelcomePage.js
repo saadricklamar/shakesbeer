@@ -32,7 +32,10 @@ class WelcomePage extends Component {
       <div className='welcome-page'>
         <h1 className='welcome-header'>ShakesBeer</h1>
         <div className='search-container'>
-          <Autocomplete suggestions={this.state.usStates} dataset={this.props.dataset} chooseState={this.props.chooseState}/>
+          <Autocomplete suggestions={this.state.usStates} 
+                        dataset={this.props.dataset} 
+                        chooseState={this.props.chooseState}
+          />
           {/* <Locations dataset={this.props.dataset} chooseState={this.props.chooseState} /> */}
         </div>
       </div>
