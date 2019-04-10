@@ -178,8 +178,6 @@ class ResultsPage extends Component {
             />
             <BreweryList filteredBreweries={this.state.filteredBreweries} 
                          dataset={this.props.dataset}
-                        //  addStarredBrewery={this.addStarredBrewery}
-                        //  removeStarredBrewery={this.removeStarredBrewery}
                          updateStarredList={this.updateStarredList}
                          starredBreweries={this.state.starredBreweries}
             />
