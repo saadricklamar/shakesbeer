@@ -1,6 +1,5 @@
 import React from 'react';
 import Breweries from './Breweries.js'
-import './BreweryList.css';
 
 function BreweryList(props) {
   return (

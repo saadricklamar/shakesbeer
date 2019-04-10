@@ -1,16 +1,8 @@
-import React, { Component, Fragment } from "react";
-import PropTypes from "prop-types";
-import './Autocomplete.css';
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import './Autocomplete.scss';
 
 class Autocomplete extends Component {
-  static propTypes = {
-    suggestions: PropTypes.instanceOf(Array)
-  };
-
-  static defaultProps = {
-    suggestions: []
-  };
-
   constructor(props) {
     super(props);
 
@@ -18,18 +10,16 @@ class Autocomplete extends Component {
       activeSuggestion: 0,
       filteredSuggestions: [],
       showSuggestions: false,
-      userInput: ""
+      userInput: '',
+      suggestions: []
     };
   }
 
   onChange = e => {
     const { suggestions } = this.props;
     const userInput = e.currentTarget.value;
-
-    const filteredSuggestions = suggestions.filter(
-      suggestion =>
-        suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
-    );
+    const filteredSuggestions = suggestions
+    .filter(suggestion => suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1);
 
     this.setState({
       activeSuggestion: 0,
@@ -39,20 +29,15 @@ class Autocomplete extends Component {
     });
   };
 
-  onClick = e => {
-    this.setState({
-      activeSuggestion: 0,
-      filteredSuggestions: [],
-      showSuggestions: false,
-      userInput: e.currentTarget.innerText
-    });
-    this.props.chooseState(e);
-  };
+  onClick = e => this.props.chooseState(e);
 
   onKeyDown = e => {
     const { activeSuggestion, filteredSuggestions } = this.state;
 
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 && this.props.usStates.includes(e.currentTarget.value)) {
+      console.log(e.target.innerText);
+      this.props.chooseState(e);
+    } else if (e.keyCode === 13 && !this.props.usStates.includes(e.currentTarget.value)) {
       this.setState({
         activeSuggestion: 0,
         showSuggestions: false,
@@ -89,12 +74,12 @@ class Autocomplete extends Component {
     if (showSuggestions && userInput) {
       if (filteredSuggestions.length) {
         suggestionsListComponent = (
-          <ul className="suggestions">
+          <ul className='suggestions'>
             {filteredSuggestions.map((suggestion, index) => {
               let className;
 
               if (index === activeSuggestion) {
-                className = "suggestion-active";
+                className = 'suggestion-active';
               }
 
               return (
@@ -111,8 +96,8 @@ class Autocomplete extends Component {
         );
       } else {
         suggestionsListComponent = (
-          <div className="no-suggestions">
-            <em>No suggestions, you're on your own!</em>
+          <div className='no-suggestions'>
+            <em>No matches!</em>
           </div>
         );
       }
@@ -121,7 +106,8 @@ class Autocomplete extends Component {
     return (
       <Fragment>
         <input
-          type="text"
+          className='state-search'
+          type='text'
           onChange={onChange}
           onKeyDown={onKeyDown}
           value={userInput}

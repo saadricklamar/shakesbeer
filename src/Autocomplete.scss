@@ -6,7 +6,7 @@
   padding-bottom: 200px;
 }
 
-input {
+.state-search {
   font-family: 'Open sans', sans-serif;
   width: 350px;
   font-size: 20px;
@@ -18,7 +18,7 @@ input {
 }
 
 .no-suggestions {
-  color: #999;
+  color: white;
   padding: 0.5rem;
 }
 
@@ -39,14 +39,18 @@ input {
 
 .suggestions li {
   padding: 0.5rem;
+
+  &:hover {
+    cursor: pointer;
+    background: rgba(250, 209, 125, 0.85);
+  }
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid #999;
+  }
 }
 
-.suggestion-active,
-.suggestions li:hover {
+.suggestion-active {
   cursor: pointer;
   background: rgba(250, 209, 125, 0.85);
-}
-
-.suggestions li:not(:last-of-type) {
-  border-bottom: 1px solid #999;
 }

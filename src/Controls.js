@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Filter from './Filter.js';
-import './Controls.css';
+import './Controls.scss';
 
 class Controls extends Component {
 

@@ -1,0 +1,16 @@
+@import './WelcomePage.scss';
+@import './ResultsPage.scss';
+@import './Autocomplete.scss';
+@import './Filter.scss';
+@import './Controls.scss';
+@import './Breweries.scss';
+@import './BeerDescription.scss';
+@import './Beer.scss';
+
+
+.loading-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

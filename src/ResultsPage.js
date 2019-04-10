@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ResultsPage.css';
+import './ResultsPage.scss';
 import Controls from './Controls.js'
 import BreweryList from './BreweryList.js'
 import logo from './images/shakesbeerlogosmall.png';
@@ -161,7 +161,6 @@ class ResultsPage extends Component {
   }
  
   render() {
-    console.log(`Viewing stars: ${this.state.viewingStarred}`);
     return (
       <div className="results-page">
         <header>
@@ -169,7 +168,7 @@ class ResultsPage extends Component {
           <h1 className="results-header">ShakesBeer</h1>
         </header>
         <main>
-          <h2 className="state-subheading">{this.props.selectedState}</h2>  
+          <h2 className="state-subheading">{this.props.selectedState} Brewery List</h2>  
           <div className="brew-cards">
             <Controls breweryCities={this.state.breweryCities} 
                       beerStyles={this.state.beerStyles}
