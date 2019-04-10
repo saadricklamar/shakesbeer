@@ -30,6 +30,10 @@ class ResultsPage extends Component {
     this.getStateBreweries();
   }
 
+  resetPage() {
+    this.setState({dropDown: false});
+  }
+
   getStateBreweries = () => {
     let stateBreweries = this.props.dataset.filter(brewery => {
       return brewery.state === this.props.selectedState;
@@ -92,6 +96,7 @@ class ResultsPage extends Component {
   }
 
   refreshBreweryList = () => {
+
     //reset page defaults, or whatever we need to do to get beer details to show and collapse on filter change
     this.setState({ filteredBreweries: [...this.state.stateBreweries] }, () => this.filterByCity());
   }
@@ -161,6 +166,7 @@ class ResultsPage extends Component {
   }
  
   render() {
+    
     return (
       <div className="results-page">
         <header>
@@ -180,6 +186,7 @@ class ResultsPage extends Component {
                          dataset={this.props.dataset}
                          updateStarredList={this.updateStarredList}
                          starredBreweries={this.state.starredBreweries}
+                        //  resetPage={this.resetPage}
             />
           </div>
         </main>

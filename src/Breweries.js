@@ -15,9 +15,7 @@ class Breweries extends Component {
   }
 
   getTarget = (e) => {
-    this.setState({breweryName: e.target.innerText}, () => {
-      this.findBeers(); 
-    }) 
+    this.setState({breweryName: e.target.innerText}, () => this.findBeers()); 
     this.toggleDropDown();
   }
 
@@ -30,7 +28,7 @@ class Breweries extends Component {
   }
 
   toggleDropDown = () => {
-    this.setState({dropDown: !this.state.dropDown})
+    this.setState({dropDown: !this.state.dropDown});
   }
 
   toggleFavorite = () => {
@@ -42,7 +40,7 @@ class Breweries extends Component {
   render() {
     let favClass = this.props.starredBreweries.includes(this.props.name) 
     ? 'far fa-star fas' 
-    : 'far fa-star ';
+    : 'far fa-star';
 
     return (
       <div className='brewery-label'>
@@ -52,12 +50,12 @@ class Breweries extends Component {
         </div>
         {
         this.state.dropDown && this.state.beerList ? (
-            this.state.beerList.map(beer => {
-                return <Beer beers={this.state.beerList}
-                              beerName={beer.name}
-                              key={beer.FIELD1}
-                        />
-            })
+          this.state.beerList.map(beer => {
+            return <Beer beers={this.state.beerList}
+                         beerName={beer.name}
+                         key={beer.FIELD1}
+                    />
+          })
         ) : (null)
         }
       </div>

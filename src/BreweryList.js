@@ -8,9 +8,10 @@ function BreweryList(props) {
         props.filteredBreweries.map(brewery => {
           return (
             <Breweries name={brewery.name}
-                        dataset={props.dataset}
-                        starredBreweries={props.starredBreweries}
-                        updateStarredList={props.updateStarredList}
+                       dataset={props.dataset}
+                       starredBreweries={props.starredBreweries}
+                       updateStarredList={props.updateStarredList}
+                      //  resetPage={this.props.resetPage}
             />
           )
         })
