@@ -1,20 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Filter Should match the snapshot 1`] = `
+
+exports[`Filter Should have a snapshot 1`] = `
 <div>
   <label
     className="filter-label"
-  />
+    htmlFor="string"
+  >
+    string
+  </label>
   <select
     className="filter"
-    onChange={
-      Array [
-        1,
-        2,
-        3,
-        4,
-      ]
-    }
+    id="string"
+    onChange={[MockFunction]}
   >
     <option>
       All

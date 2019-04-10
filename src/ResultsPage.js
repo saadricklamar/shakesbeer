@@ -14,7 +14,6 @@ class ResultsPage extends Component {
       breweryCities: [],
       beerStyles: [],
       beerIbus: [],
-      //beerAbvs
       citySelection: 'All', 
       styleSelection: 'All',
       ibuSelection: 'All', 
@@ -35,7 +34,6 @@ class ResultsPage extends Component {
       this.getCities();
       this.getStyles();
       this.getIbus();
-      //this.getAbvs
     })
   }
 
