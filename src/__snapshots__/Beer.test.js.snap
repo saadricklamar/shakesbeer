@@ -3,10 +3,10 @@
 exports[`Beer Should match the snapshot 1`] = `
 <div>
   <ul
-    class="beer-list"
+    className="beer-list"
   >
     <li
-      class="beer-list-item"
+      className="beer-list-item"
       onClick={[Function]}
     >
       1
