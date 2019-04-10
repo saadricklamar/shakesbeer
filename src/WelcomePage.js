@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Autocomplete from './Autocomplete.js';
-import './WelcomePage.css';
+import './WelcomePage.scss';
 
 class WelcomePage extends Component {
   constructor(props) {
@@ -31,8 +31,7 @@ class WelcomePage extends Component {
       <div className='welcome-page'>
         <h1 className='welcome-header'>ShakesBeer</h1>
         <div className='search-container'>
-          <Autocomplete suggestions={this.state.usStates} 
-                        dataset={this.props.dataset} 
+          <Autocomplete usStates={this.state.usStates}
                         chooseState={this.props.chooseState}
           />
         </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import WelcomePage from './WelcomePage.js';
 import ResultsPage from './ResultsPage.js';
 import spinner from './images/spinner.gif';
@@ -45,7 +45,8 @@ class App extends Component {
   }
 
   chooseState = (e) => {
-    this.setState({selectedState: e.target.innerText, showWelcomeScreen: false});
+    const state = !e.target.innerText ? e.currentTarget.value : e.target.innerText;
+    this.setState({selectedState: state, showWelcomeScreen: false});
   }
   
   render() {

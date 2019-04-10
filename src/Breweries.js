@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Beer from "./Beer.js"
-import './Breweries.css';
+import './Breweries.scss';
 
 
 class Breweries extends Component {

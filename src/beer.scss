@@ -1,0 +1,16 @@
+@import './variables.scss';
+
+.beer-list {
+  padding: 20px;
+  border-bottom: 2px solid $secondary-color;
+  color: white;
+
+  &:hover {
+    border-bottom: 2px solid $primary-color;
+  }
+}
+
+.beer-list-item {
+  list-style: none;
+  font-size: 18px;
+}

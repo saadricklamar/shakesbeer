@@ -1,45 +1,46 @@
+@import './variables.scss';
 
 .brewery-label {
   transition: box-shadow .3s ease-in-out;
   font-size: 15px;
-  background-color: #f9a960;
+  background-color: $secondary-color;
   margin: 20px 0;
   border-radius: 3px;
-  border: 5px solid #f9a960;
-}
+  border: 5px solid $secondary-color;
 
-.brewery-label:hover {
-  box-shadow: 0 0 14px rgba(33,33,33,.4);
-}
-
-.brewery-header:hover {
-  background-color: #f9a960;
-}
-
-.brewery-header h2 {
-  flex: 15;
-  padding: 20px;
-  margin: 0px;
+  &:hover {
+    box-shadow: 0 0 14px rgba(33,33,33,.4);
+  }
 }
 
 .brewery-header {
   display: flex;
   align-items: center;
   transition: background-color .5s ease-out;
-  background-color: #f78f2f;
+  background-color: $primary-color;
   margin: 0;
   padding: 0px 20px;
   color: white;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+
+  h2 {
+    flex: 15;
+    padding: 20px;
+    margin: 0px;
+  }
 }
 
 .fa-star {
   font-size: 20px;
   color: #ffd68ba8;
   flex: 1;
-}
 
-.fa-star:hover {
-  color: white;
+  &:hover {
+    color: white;
+  }
 }
 
 .fas {

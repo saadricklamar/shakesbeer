@@ -1,5 +1,5 @@
 import React from 'react';
-import './BeerDescription.css'
+import './BeerDescription.scss'
 
 function BeerDescription(props) {
   return (
