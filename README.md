@@ -14,9 +14,13 @@ npm start will run the app in the development mode. When the server is running, 
 
 If any alterations to the code are made, then the page will reload.
 
-# Desktop View
+# Home Page
 
 ![ShakesBeerHomePage](https://user-images.githubusercontent.com/42000931/55891725-4a274e00-5b72-11e9-9e27-3b2a4b1e8a35.png)
+
+# Breweries Page
+
+![StateBreweryHomePage](https://user-images.githubusercontent.com/42000931/55915337-b8860380-5ba6-11e9-9850-c9124f587d3d.png)
 
 # Tech/Frameworks Used
 
