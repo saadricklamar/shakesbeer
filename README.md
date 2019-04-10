@@ -4,7 +4,7 @@ Need a beer, but not sure where to find one?! *ShakesBeer* will locate your next
 
 # Installation
 
-**Clone** this repo https://github.com/saadricklamar/NBAJeopardy.git
+**Clone** this repo https://github.com/saadricklamar/shakesbeer.git
 
 Run **npm install** in your terminal
 
