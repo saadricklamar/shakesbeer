@@ -24,9 +24,27 @@ class Controls extends Component {
   render() {
     return (
       <form className="filter-area">
-        <Filter filterName="city-filter" label="City: " filterOptions={this.props.breweryCities} updateSelected={this.updateCity} />
-        <Filter filterName="style-filter" label="Style: " filterOptions={this.props.beerStyles} updateSelected={this.updateStyle} />
-        <Filter filterName="ibu-filter" label="Ibu: " filterOptions={this.props.beerIbus} updateSelected={this.updateIbu} />
+        <Filter 
+          className="city-filter"
+          filterName="city-filter"
+          label="City: "
+          filterOptions={this.props.breweryCities}
+          updateSelected={this.updateCity}
+        />
+        <Filter
+          className="style-filter" 
+          filterName="style-filter" 
+          label="Style: " 
+          filterOptions={this.props.beerStyles} 
+          updateSelected={this.updateStyle}
+        />
+        <Filter 
+          className="ibu-filter" 
+          filterName="ibu-filter" 
+          label="Ibu: " 
+          filterOptions={this.props.beerIbus} 
+          updateSelected={this.updateIbu}
+        />
         {/* Add Filter for abv */}
 
         {/* <label htmlFor='city-filter' className='filter-label'>City: </label>

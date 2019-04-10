@@ -43,7 +43,7 @@ class Breweries extends Component {
         <div className='brewery-label'>
           <div className='brewery-header'>
             <i className='far fa-star' onClick={this.toggleFavorite}></i>
-            <h2 onClick={this.getTarget}>{this.props.name}</h2>
+            <h2 onClick={this.getTarget} >{this.props.name}</h2>
           </div>
           {
           this.state.dropDown ? (

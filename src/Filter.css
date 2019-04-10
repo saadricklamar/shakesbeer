@@ -3,11 +3,10 @@
   height: 30px;
   border: 1px solid darkorange;
   font-size: 16px;
-  margin-right: 30px;
 }
 
 .filter-label {
-  padding-right: 10px;
+  font-size: 18px;
 }
 
 .filter:focus {
