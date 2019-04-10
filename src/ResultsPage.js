@@ -4,7 +4,7 @@ import Controls from './Controls.js'
 import BreweryList from './BreweryList.js'
 import logo from './images/shakesbeerlogosmall.png';
 
-let starredData = JSON.parse(localStorage.getItem('userStarredList')) || [''];
+let starredData = JSON.parse(localStorage.getItem('userStarredList')) || [];
 
 class ResultsPage extends Component {
   constructor(props) {
@@ -140,16 +140,11 @@ class ResultsPage extends Component {
   }
 
   updateStarredList = (name, change) => {
-    // let list = JSON.parse(localStorage.getItem('userStarredBreweries')) || [];
-    let list = this.state.starredBreweries ? [...this.state.starredBreweries] : [];
+    let list = this.state.starredBreweries;
 
-    console.log(`list: ${list}`);
+    change === 'add' ? list.push(name)
+    : list.splice(this.state.starredBreweries.indexOf(name), 1);
 
-    if (change === 'add' && list.length > 0) {
-      list.push(name)
-    } else if (list.length > 0) {
-      list.splice(this.state.starredBreweries.indexOf(name), 1);
-    } 
     this.setState({ starredBreweries: list }, () => {
       localStorage.setItem('userStarredList', JSON.stringify(this.state.starredBreweries))
     });
