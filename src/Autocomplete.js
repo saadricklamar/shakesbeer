@@ -1,11 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
 import './Autocomplete.scss';
 
 class Autocomplete extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       activeSuggestion: 0,
       filteredSuggestions: [],
@@ -16,7 +14,7 @@ class Autocomplete extends Component {
   }
 
   onChange = e => {
-    const { suggestions } = this.props;
+    const suggestions = this.props.usStates;
     const userInput = e.currentTarget.value;
     const filteredSuggestions = suggestions
     .filter(suggestion => suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1);
@@ -35,7 +33,6 @@ class Autocomplete extends Component {
     const { activeSuggestion, filteredSuggestions } = this.state;
 
     if (e.keyCode === 13 && this.props.usStates.includes(e.currentTarget.value)) {
-      console.log(e.target.innerText);
       this.props.chooseState(e);
     } else if (e.keyCode === 13 && !this.props.usStates.includes(e.currentTarget.value)) {
       this.setState({
