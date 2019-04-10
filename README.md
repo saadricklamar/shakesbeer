@@ -15,7 +15,7 @@ Run **npm install** in your terminal
 
 # Learning Goals
 
-The main goal of building Shakebeer was to get familiar with React and how to test React. The app was built from scratch and utilizes array-prototype methods to extract and manipulate data. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The main goal of building Shakebeer was to get familiar with React and how to test React. The app was built from scratch and utilizes array-prototype methods to extract and manipulate data. Additionally, we utilized fetch API, JSX, and Sass. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Contributors
 [Lynne Rang](https://github.com/lynnerang),
