@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Breweries from './Breweries.js'
 import './BreweryList.css';
 
-
-
 class BreweryList extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +11,6 @@ class BreweryList extends Component {
   }
 
   render() {
-
       return (
         <div>
         {
@@ -21,6 +18,9 @@ class BreweryList extends Component {
             return (
               <Breweries name={brewery.name}
                          dataset={this.props.dataset}
+                         starredBreweries={this.props.starredBreweries}
+                         addStarredBrewery={this.props.addStarredBrewery}
+                         removeStarredBrewery={this.props.removeStarredBrewery}
               />
             )
           })

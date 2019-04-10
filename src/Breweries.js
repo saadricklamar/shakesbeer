@@ -8,10 +8,12 @@ class Breweries extends Component {
     super(props);
     this.state = {
       dropDown: false,
-      breweryName: '',
+      breweryName: this.props.name || '',
       beerList: [],
-      favorite: false
+      favorite: this.props.starredBreweries.includes(this.breweryName)
     }
+
+    this.toggleFavorite = this.toggleFavorite.bind(this);
   }
 
     getTarget = (e) => {
@@ -33,16 +35,21 @@ class Breweries extends Component {
     }
 
     toggleFavorite = (e) => {
-      this.setState({favorite: !this.state.favorite});
       e.target.classList.toggle('fas');
+      this.setState({favorite: !this.state.favorite}, () => {
+        this.state.favorite ? this.props.addStarredBrewery(this.state.breweryName)
+        : this.props.removeStarredBrewery(this.state.breweryName)
+      });
     }
     
     render() {
+      let favClass;
+      this.state.favorite ?  favClass = 'fas' : favClass = '';
 
       return (
         <div className='brewery-label'>
           <div className='brewery-header'>
-            <i className='far fa-star' onClick={this.toggleFavorite}></i>
+            <i className={`far fa-star ${favClass}`} onClick={this.toggleFavorite}></i>
             <h2 onClick={this.getTarget}>{this.props.name}</h2>
           </div>
           {
