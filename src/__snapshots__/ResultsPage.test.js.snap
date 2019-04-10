@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultsPage Should match the snapshot 1`] = `
+<div
+  className="results-page"
+>
+  <header>
+    <img
+      alt="shakesbeer logo"
+      src="./images/shakesbeerlogosmall.png"
+    />
+    <h1
+      className="results-header"
+    >
+      ShakesBeer
+    </h1>
+  </header>
+  <main>
+    <h2
+      className="state-subheading"
+    >
+      1
+      2
+      3
+      4
+    </h2>
+    <div
+      className="brew-cards"
+    >
+      <Controls
+        beerIbus={Array []}
+        beerStyles={Array []}
+        breweryCities={Array []}
+        updateFilterSelection={[Function]}
+      />
+      <BreweryList
+        dataset={
+          Array [
+            1,
+            2,
+            3,
+            4,
+          ]
+        }
+        filteredBreweries={Array []}
+      />
+    </div>
+  </main>
+</div>
+`;

@@ -32,6 +32,7 @@ exports[`Controls Should match the snapshot 1`] = `
   />
   <Filter
     filterName="ibu-filter"
+    filterOptions={[MockFunction]}
     label="Ibu: "
     updateSelected={[Function]}
   />

@@ -1,6 +1,9 @@
 .filter-area {
   display: flex;
+  padding: 20px 0;
+  justify-content: space-between;
   align-items: center;
+  width: 1000px;
 }
 
 #fav-filter {

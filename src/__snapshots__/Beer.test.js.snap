@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Beer Should match the snapshot 1`] = `
+<div>
+  <ul
+    class="beer-list"
+  >
+    <li
+      class="beer-list-item"
+      onClick={[Function]}
+    >
+      1
+      2
+      3
+      4
+    </li>
+  </ul>
+</div>
+`;

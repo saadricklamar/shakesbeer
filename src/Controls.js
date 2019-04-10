@@ -3,11 +3,6 @@ import Filter from './Filter.js';
 import './Controls.css';
 
 class Controls extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    }
-  }
 
   updateCity = (e) => {
     this.props.updateFilterSelection('city', e.target.value); 
@@ -24,9 +19,21 @@ class Controls extends Component {
   render() {
     return (
       <form className="filter-area">
-        <Filter filterName="city-filter" label="City: " filterOptions={this.props.breweryCities} updateSelected={this.updateCity} />
-        <Filter filterName="style-filter" label="Style: " filterOptions={this.props.beerStyles} updateSelected={this.updateStyle} />
-        <Filter filterName="ibu-filter" label="Ibu: " filterOptions={this.props.beerIbus} updateSelected={this.updateIbu} />
+        <Filter filterName="city-filter" 
+                label="City: " 
+                filterOptions={this.props.breweryCities} 
+                updateSelected={this.updateCity} 
+        />
+        <Filter filterName="style-filter" 
+                label="Style: " 
+                filterOptions={this.props.beerStyles} 
+                updateSelected={this.updateStyle} 
+        />
+        <Filter filterName="ibu-filter" 
+                label="Ibu: " 
+                filterOptions={this.props.beerIbus} 
+                updateSelected={this.updateIbu} 
+        />
         <label htmlFor='fav-filter'>Star Filter: </label>
         <input type='checkbox' id='fav-filter' onClick={this.toggleStarView} />
       </form>
