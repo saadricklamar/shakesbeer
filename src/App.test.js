@@ -103,6 +103,7 @@ describe('App', () => {
     expect(wrapper.state().dataset).toEqual([
     {
       "name": "18th Street Brewery",
+      "id": 177,
       "city": "Gary",
       "state": "Indiana",
       "beers": [{
@@ -148,6 +149,7 @@ describe('App', () => {
       },
       {
       "name": "10 Barrel Brewing Company",
+      "id": 408,
       "city": "Bend",
       "state": "Oregon",
       "beers": [{
