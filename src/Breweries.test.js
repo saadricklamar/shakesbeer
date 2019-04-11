@@ -72,11 +72,7 @@ describe('Breweries', () => {
     });
 
     it('Should have default state', () => {
-        expect(wrapper.state()).toEqual(
-            {
-                beerList: []
-            }
-        )
+        expect(wrapper.state()).toEqual({beerList: []})
     });
 
     // it('Should find the beer and setState', () => {
