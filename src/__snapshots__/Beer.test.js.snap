@@ -9,10 +9,7 @@ exports[`Beer Should match the snapshot 1`] = `
       className="beer-list-item"
       onClick={[Function]}
     >
-      1
-      2
-      3
-      4
+      <Component />
     </li>
   </ul>
 </div>

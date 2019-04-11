@@ -55,9 +55,11 @@ class App extends Component {
     if (this.state.beers.length === 0 || this.state.breweries.length === 0) {
       page = <div className='loading-page'><img className='loading' src={spinner} alt='loading icon'/></div>
     } else if (this.state.showWelcomeScreen) {
-      page = <WelcomePage dataset={this.state.dataset} chooseState={this.chooseState} />
+      page = <WelcomePage dataset={this.state.dataset} 
+                          chooseState={this.chooseState} />
     } else {
-      page = <ResultsPage selectedState={this.state.selectedState} dataset={this.state.dataset} />
+      page = <ResultsPage selectedState={this.state.selectedState} 
+                          dataset={this.state.dataset} />
     }
 
     return (<div>{page}</div>);

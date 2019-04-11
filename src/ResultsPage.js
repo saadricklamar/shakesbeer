@@ -176,6 +176,7 @@ class ResultsPage extends Component {
   }
  
   render() {
+    // console.log(this.state.breweryCities)
     return (
       <div className="results-page">
         <header>
