@@ -176,6 +176,11 @@ class ResultsPage extends Component {
   }
  
   render() {
+    const beerCount = this.state.filteredBreweries.reduce((sum, brewery) => {
+      sum += brewery.beers.length;
+      return sum;
+    }, 0)
+    
     return (
       <div className='results-page'>
         <header>
@@ -196,6 +201,7 @@ class ResultsPage extends Component {
                       updateFilterSelection={this.updateFilterSelection}
                       toggleStarView={this.toggleStarView}
             />
+            <p className='results-count'>Viewing {this.state.filteredBreweries.length} breweries with {beerCount} beers</p>
             <BreweryList filteredBreweries={this.state.filteredBreweries} 
                          dataset={this.props.dataset}
                          updateStarredList={this.updateStarredList}
