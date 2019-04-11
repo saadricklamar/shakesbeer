@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BeerDescription Should match a snapshot 1`] = `
+<div
+  className="beer-description"
+>
+  <h3>
+    Cast Iron Oatmeal Brown
+  </h3>
+  <div
+    className="beer-stuff"
+  >
+    <p>
+      Style: 
+      American Brown Ale
+    </p>
+    <p>
+      IBU: 
+    </p>
+    <p>
+      ABV: 
+      0.055
+    </p>
+  </div>
+  <p
+    className="click-me"
+    onClick={[MockFunction]}
+    role="button"
+  >
+    Click ME!
+  </p>
+</div>
+`;

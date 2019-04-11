@@ -5,6 +5,10 @@ exports[`ResultsPage Should match the snapshot 1`] = `
   className="results-page"
 >
   <header>
+    <i
+      className="fas fa-arrow-left"
+      onClick={[Function]}
+    />
     <img
       alt="shakesbeer logo"
       className="logo"
@@ -22,6 +26,7 @@ exports[`ResultsPage Should match the snapshot 1`] = `
     >
 
       <Component />
+       Brewery List
     </h2>
     <div
       className="brew-cards"

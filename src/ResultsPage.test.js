@@ -2,6 +2,7 @@ import React from 'react';
 import ResultsPage from './ResultsPage.js';
 import { shallow } from 'enzyme';
 
+const mockArray = [1,2,3]
 const mockData = [
   {
   "FIELD1": 90,
@@ -72,13 +73,14 @@ describe('ResultsPage', () => {
       {
         stateBreweries: [],
         filteredBreweries: [],
+        starredBreweries: mockArray,
         breweryCities: [],
         beerStyles: [],
         beerIbus: [],
         citySelection: 'All', 
         styleSelection: 'All',
-        ibuSelection: 'All', 
-        abvSelection: 'All'
+        ibuSelection: 'All',
+        viewingStarred: false
       }
     )
   });
