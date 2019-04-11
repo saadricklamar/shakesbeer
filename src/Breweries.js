@@ -18,22 +18,19 @@ class Breweries extends Component {
 
   toggleBeerList = (e) => {
     const beerList = e.target.closest('.brewery-label').querySelector('.beer-dropdown');
+    console.log(beerList)
     beerList.classList.toggle('hidden');
   }
 
   getBeers = () => {
     let match = this.props.dataset.find(brewery => {
-      return this.props.name === brewery.name && this.props.city === brewery.city;
+      return this.props.id === brewery.id;
     });
     let beers = match && match.beers ? match.beers : null;
     this.setState({beerList: beers});
   }
 
   toggleFavorite = () => {
-    console.log(this.props.starredBreweries)
-    console.log(this.props.id);
-
-    console.log(this.props.starredBreweries.includes(this.props.id))
     !this.props.starredBreweries.includes(this.props.id) 
     ? this.props.updateStarredList(this.props.id, 'add')
     : this.props.updateStarredList(this.props.id)
