@@ -6,7 +6,6 @@ class Breweries extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      breweryName: this.props.name || '',
       beerList: []
     }
 
@@ -14,7 +13,7 @@ class Breweries extends Component {
   }
 
   componentWillMount() {
-    this.getBeers();
+    this.setState({breweryName: this.props.name}, () => this.getBeers());
   }
 
   toggleBeerList = (e) => {
@@ -24,24 +23,24 @@ class Breweries extends Component {
 
   getBeers = () => {
     let match = this.props.dataset.find(brewery => {
-      return this.state.breweryName === brewery.name;
+      return this.props.name === brewery.name && this.props.city === brewery.city;
     });
     let beers = match && match.beers ? match.beers : null;
     this.setState({beerList: beers});
   }
 
-  toggleDropDown = (e) => {
-    this.setState({dropDown: !this.state.dropDown});
-  }
-
   toggleFavorite = () => {
-      !this.props.starredBreweries.includes(this.props.name) 
-      ? this.props.updateStarredList(this.state.breweryName, 'add')
-      : this.props.updateStarredList(this.state.breweryName)
+    console.log(this.props.starredBreweries)
+    console.log(this.props.id);
+
+    console.log(this.props.starredBreweries.includes(this.props.id))
+    !this.props.starredBreweries.includes(this.props.id) 
+    ? this.props.updateStarredList(this.props.id, 'add')
+    : this.props.updateStarredList(this.props.id)
   }
   
   render() {
-    let favClass = this.props.starredBreweries.includes(this.props.name) 
+    let favClass = this.props.starredBreweries.includes(this.props.id) 
     ? 'far fa-star fas' 
     : 'far fa-star';
 

@@ -146,13 +146,18 @@ class ResultsPage extends Component {
     }
   }
 
-  updateStarredList = (name, change) => {
+  updateStarredList = (id, change) => {
     let list = this.state.starredBreweries;
+    console.log(list.indexOf(list.find(obj => obj.id === id)));
 
-    change === 'add' ? list.push(name)
-    : list.splice(this.state.starredBreweries.indexOf(name), 1);
+    if (change === 'add') {
+      list.push(id)
+    } else {
+      const matchingIndex = list.indexOf(list.find(obj => obj.id === id));
+      list.splice(matchingIndex, 1);
+    }
 
-    this.setState({ starredBreweries: list }, () => {
+    this.setState({starredBreweries: list}, () => {
       localStorage.setItem('userStarredList', JSON.stringify(this.state.starredBreweries))
     });
   }
@@ -160,9 +165,9 @@ class ResultsPage extends Component {
   filterByStarred = () => {
     if (this.state.viewingStarred === true) {
       let filterResults = this.state.filteredBreweries.filter(brewery => {
-        return this.state.starredBreweries.includes(brewery.name);
+        return this.state.starredBreweries.includes(brewery.id);
       })
-      this.setState({ filteredBreweries: filterResults })
+      this.setState({filteredBreweries: filterResults})
     }
   }
 

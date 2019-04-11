@@ -36,7 +36,8 @@ class App extends Component {
         name: brewery.name,
         state: brewery.state,
         city: brewery.city,
-        beers: this.state.beers.filter(beer => beer.brewery_id === brewery.FIELD1)
+        beers: this.state.beers.filter(beer => beer.brewery_id === brewery.FIELD1),
+        id: brewery.FIELD1
       });
       return acc;
     }, []);

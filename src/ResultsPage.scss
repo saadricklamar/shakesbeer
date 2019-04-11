@@ -57,7 +57,7 @@ main {
   cursor: pointer;
 
   &:hover {
-    color: orange;
+    color: $primary-color;
     background: white;
   }
 }
