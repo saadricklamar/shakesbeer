@@ -96,9 +96,15 @@ class ResultsPage extends Component {
   }
 
   refreshBreweryList = () => {
-
-    //reset page defaults, or whatever we need to do to get beer details to show and collapse on filter change
+    this.hideBeerInfo('dropdown');
+    this.hideBeerInfo('description');
     this.setState({ filteredBreweries: [...this.state.stateBreweries] }, () => this.filterByCity());
+  }
+
+  hideBeerInfo = (element) => {
+    document.querySelectorAll(`.beer-${element}`).forEach(item => {
+      item.classList.add('hidden');
+    });
   }
 
   filterByCity = () => {
@@ -166,7 +172,6 @@ class ResultsPage extends Component {
   }
  
   render() {
-    
     return (
       <div className="results-page">
         <header>

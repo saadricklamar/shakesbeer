@@ -40,7 +40,6 @@ class App extends Component {
       });
       return acc;
     }, []);
-    console.log(data)
     this.setState({ dataset: data});
   }
 

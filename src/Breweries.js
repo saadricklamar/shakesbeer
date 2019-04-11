@@ -14,12 +14,19 @@ class Breweries extends Component {
     this.toggleFavorite = this.toggleFavorite.bind(this);
   }
 
-  getTarget = (e) => {
-    this.setState({breweryName: e.target.innerText}, () => this.findBeers()); 
-    this.toggleDropDown();
+  componentWillMount() {
+    this.getBeers();
+    // this.setState({breweryName: e.target.innerText}, () => this.findBeers());
   }
 
-  findBeers = () => {
+  toggleBeerList = (e) => {
+    // this.setState({breweryName: e.target.innerText}, () => this.findBeers()); 
+    // this.toggleDropDown();
+    const beerList = e.target.closest('.brewery-label').querySelector('.beer-dropdown');
+    beerList.classList.toggle('hidden');
+  }
+
+  getBeers = () => {
     let match = this.props.dataset.find(brewery => {
       return this.state.breweryName === brewery.name;
     });
@@ -27,7 +34,7 @@ class Breweries extends Component {
     this.setState({beerList: beers});
   }
 
-  toggleDropDown = () => {
+  toggleDropDown = (e) => {
     this.setState({dropDown: !this.state.dropDown});
   }
 
@@ -46,10 +53,12 @@ class Breweries extends Component {
       <div className='brewery-label'>
         <div className='brewery-header'>
           <i className={favClass} onClick={this.toggleFavorite}></i>
-          <h2 onClick={this.getTarget}>{this.props.name}</h2>
+          <h2 onClick={this.toggleBeerList}>{this.props.name}</h2>
         </div>
+        <div className='beer-dropdown hidden'>
         {
-        this.state.dropDown && this.state.beerList ? (
+        // this.state.dropDown && 
+        this.state.beerList ? (
           this.state.beerList.map(beer => {
             return <Beer beers={this.state.beerList}
                          beerName={beer.name}
@@ -58,6 +67,7 @@ class Breweries extends Component {
           })
         ) : (null)
         }
+        </div>
       </div>
     );
   }
