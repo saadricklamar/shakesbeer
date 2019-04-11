@@ -7,7 +7,8 @@ exports[`ResultsPage Should match the snapshot 1`] = `
   <header>
     <img
       alt="shakesbeer logo"
-      src="./images/shakesbeerlogosmall.png"
+      className="logo"
+      src="shakesbeerlogosmall.png"
     />
     <h1
       className="results-header"
@@ -23,6 +24,7 @@ exports[`ResultsPage Should match the snapshot 1`] = `
       2
       3
       4
+       Brewery List
     </h2>
     <div
       className="brew-cards"
@@ -31,6 +33,7 @@ exports[`ResultsPage Should match the snapshot 1`] = `
         beerIbus={Array []}
         beerStyles={Array []}
         breweryCities={Array []}
+        toggleStarView={[Function]}
         updateFilterSelection={[Function]}
       />
       <BreweryList
@@ -43,6 +46,8 @@ exports[`ResultsPage Should match the snapshot 1`] = `
           ]
         }
         filteredBreweries={Array []}
+        starredBreweries={Array []}
+        updateStarredList={[Function]}
       />
     </div>
   </main>

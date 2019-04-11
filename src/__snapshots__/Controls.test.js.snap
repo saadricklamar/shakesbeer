@@ -36,5 +36,18 @@ exports[`Controls Should match the snapshot 1`] = `
     label="Ibu: "
     updateSelected={[Function]}
   />
+  <div
+    className="fav-filter-area"
+  >
+    <label
+      htmlFor="fav-filter"
+    >
+      Starred Only: 
+    </label>
+    <input
+      id="fav-filter"
+      type="checkbox"
+    />
+  </div>
 </form>
 `;
