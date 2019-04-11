@@ -5,12 +5,14 @@ function BreweryList(props) {
   return (
     <div>
       {
-        props.filteredBreweries.map(brewery => {
+        props.filteredBreweries.map((brewery, index) => {
           return (
             <Breweries name={brewery.name}
-                        dataset={props.dataset}
-                        starredBreweries={props.starredBreweries}
-                        updateStarredList={props.updateStarredList}
+                       id={brewery.id}
+                       dataset={props.dataset}
+                       starredBreweries={props.starredBreweries}
+                       updateStarredList={props.updateStarredList}
+                       key={index}
             />
           )
         })

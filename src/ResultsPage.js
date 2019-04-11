@@ -92,8 +92,15 @@ class ResultsPage extends Component {
   }
 
   refreshBreweryList = () => {
-    //reset page defaults, or whatever we need to do to get beer details to show and collapse on filter change
+    this.hideBeerInfo('dropdown');
+    this.hideBeerInfo('description');
     this.setState({ filteredBreweries: [...this.state.stateBreweries] }, () => this.filterByCity());
+  }
+
+  hideBeerInfo = (element) => {
+    document.querySelectorAll(`.beer-${element}`).forEach(item => {
+      item.classList.add('hidden');
+    });
   }
 
   filterByCity = () => {
@@ -139,13 +146,18 @@ class ResultsPage extends Component {
     }
   }
 
-  updateStarredList = (name, change) => {
+  updateStarredList = (id, change) => {
     let list = this.state.starredBreweries;
+    console.log(list.indexOf(list.find(obj => obj.id === id)));
 
-    change === 'add' ? list.push(name)
-    : list.splice(this.state.starredBreweries.indexOf(name), 1);
+    if (change === 'add') {
+      list.push(id)
+    } else {
+      const matchingIndex = list.indexOf(list.find(obj => obj.id === id));
+      list.splice(matchingIndex, 1);
+    }
 
-    this.setState({ starredBreweries: list }, () => {
+    this.setState({starredBreweries: list}, () => {
       localStorage.setItem('userStarredList', JSON.stringify(this.state.starredBreweries))
     });
   }
@@ -153,17 +165,22 @@ class ResultsPage extends Component {
   filterByStarred = () => {
     if (this.state.viewingStarred === true) {
       let filterResults = this.state.filteredBreweries.filter(brewery => {
-        console.log(brewery.name);
-        return this.state.starredBreweries.includes(brewery.name);
+        return this.state.starredBreweries.includes(brewery.id);
       })
-      this.setState({ filteredBreweries: filterResults })
+      this.setState({filteredBreweries: filterResults})
     }
+  }
+
+  goBackHome = () => {
+    window.location.reload()
   }
  
   render() {
+    // console.log(this.state.breweryCities)
     return (
       <div className="results-page">
         <header>
+          <i className='fas fa-arrow-left' onClick={this.goBackHome}></i>
           <img className='logo' src={logo} alt="shakesbeer logo"/>
           <h1 className="results-header">ShakesBeer</h1>
         </header>
@@ -178,8 +195,6 @@ class ResultsPage extends Component {
             />
             <BreweryList filteredBreweries={this.state.filteredBreweries} 
                          dataset={this.props.dataset}
-                        //  addStarredBrewery={this.addStarredBrewery}
-                        //  removeStarredBrewery={this.removeStarredBrewery}
                          updateStarredList={this.updateStarredList}
                          starredBreweries={this.state.starredBreweries}
             />

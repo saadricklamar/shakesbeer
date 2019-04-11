@@ -125,8 +125,8 @@ describe('Breweries', () => {
     });
 
     it('Should setState of breweryName to the target given', () => {
-        const mockTarget = {target:{innerText: "The Lion Brewery"}}
         const instance = wrapper.instance()
+        const mockTarget = {target:{innerText: "The Lion Brewery"}}
         const spy = spyOn(instance, 'toggleDropDown')
         const spyFind = spyOn(instance, 'findBeers')
         expect(wrapper.state('breweryName')).toEqual('')

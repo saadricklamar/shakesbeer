@@ -1,6 +1,6 @@
 # ShakesBeer
 
-Need a beer, but not sure where to find one?! *ShakesBeer* will locate your next brewery and beer. Pick a state, filter by city, beer style, or even ibu. Cheers! 
+Need a beer, but not sure where to find one?! *ShakesBeer* will locate your next beer and brewery. Pick a state, filter by city, beer style, or ibu. Really love a beer?! Well, then favorite it. Cheers! 
 
 # Installation
 
@@ -12,7 +12,7 @@ In the project directory, please run:
 
 npm start will run the app in the development mode. When the server is running, open http://localhost:3000 to view it in the browser.
 
-If any alterations to the code are made, then the page will reload.
+If any alterations to the code are made, then the page will refresh.
 
 # Home Page
 
@@ -24,7 +24,8 @@ If any alterations to the code are made, then the page will reload.
 
 # See Our User Stories
 
-[UserStories](
+[UserStories](https://gist.github.com/saadricklamar/053a4565c323b407f0c72db0861e726a)
+
 # Tech/Frameworks Used
 
 * React
