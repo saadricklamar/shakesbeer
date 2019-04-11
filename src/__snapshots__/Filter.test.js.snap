@@ -2,7 +2,7 @@
 
 exports[`Filter Should have a snapshot 1`] = `
 <div
-  class="filter-container"
+  className="filter-container"
 >
   <label
     className="filter-label"

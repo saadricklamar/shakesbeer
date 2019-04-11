@@ -3,6 +3,7 @@
 exports[`Autocomplete Should match the snapshot 1`] = `
 <Fragment>
   <input
+    className="state-search"
     onChange={[Function]}
     onKeyDown={[Function]}
     placeholder="Choose your state"
