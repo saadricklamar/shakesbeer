@@ -19,10 +19,7 @@ exports[`ResultsPage Should match the snapshot 1`] = `
     <h2
       className="state-subheading"
     >
-      1
-      2
-      3
-      4
+      <Component />
     </h2>
     <div
       className="brew-cards"
@@ -36,10 +33,54 @@ exports[`ResultsPage Should match the snapshot 1`] = `
       <BreweryList
         dataset={
           Array [
-            1,
-            2,
-            3,
-            4,
+            Object {
+              "FIELD1": 90,
+              "beers": Array [
+                Object {
+                  "FIELD1": 43,
+                  "abv": 0.045,
+                  "brewery_id": 60,
+                  "ibu": 18,
+                  "id": 2544,
+                  "name": "Send Help",
+                  "ounces": 12,
+                  "style": "American Blonde Ale",
+                },
+                Object {
+                  "FIELD1": 44,
+                  "abv": 0.055,
+                  "brewery_id": 60,
+                  "ibu": null,
+                  "id": 2324,
+                  "name": "Cast Iron Oatmeal Brown",
+                  "ounces": 12,
+                  "style": "American Brown Ale",
+                },
+                Object {
+                  "FIELD1": 45,
+                  "abv": 0.06,
+                  "brewery_id": 60,
+                  "ibu": null,
+                  "id": 2288,
+                  "name": "Reprise Centennial Red",
+                  "ounces": 12,
+                  "style": "American Amber / Red Ale",
+                },
+                Object {
+                  "FIELD1": 46,
+                  "abv": 0.055,
+                  "brewery_id": 60,
+                  "ibu": null,
+                  "id": 2287,
+                  "name": "Alter Ego",
+                  "ounces": 12,
+                  "style": "American Black Ale",
+                },
+              ],
+              "city": "Wilkes-Barre",
+              "name": "The Lion Brewery",
+              "state": "Pennsylvania",
+            },
           ]
         }
         filteredBreweries={Array []}
