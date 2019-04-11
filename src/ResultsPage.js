@@ -165,11 +165,16 @@ class ResultsPage extends Component {
       this.setState({ filteredBreweries: filterResults })
     }
   }
+
+  goBackHome = () => {
+    window.location.reload()
+  }
  
   render() {
     return (
       <div className="results-page">
         <header>
+          <i className='fas fa-arrow-left' onClick={this.goBackHome}></i>
           <img className='logo' src={logo} alt="shakesbeer logo"/>
           <h1 className="results-header">ShakesBeer</h1>
         </header>

@@ -49,3 +49,15 @@ main {
   display: none;
 }
 
+.fa-arrow-left {
+  font-size: 30px;
+  margin: 20px 10px 20px 20px;
+  padding: 10px;
+  border-radius: 100%;
+
+  &:hover {
+    color: orange;
+    background: white;
+  }
+}
+

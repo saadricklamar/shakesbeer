@@ -57,7 +57,7 @@ class Breweries extends Component {
           this.state.beerList.map(beer => {
             return <Beer beers={this.state.beerList}
                          beerName={beer.name}
-                         key={beer.name}
+                         key={beer.FIELD1}
                     />
           })
         ) : (null)

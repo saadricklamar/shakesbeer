@@ -11,6 +11,7 @@ function BreweryList(props) {
                        dataset={props.dataset}
                        starredBreweries={props.starredBreweries}
                        updateStarredList={props.updateStarredList}
+                       key={Date.now()}
             />
           )
         })
