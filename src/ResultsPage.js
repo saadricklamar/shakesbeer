@@ -3,7 +3,6 @@ import './ResultsPage.scss';
 import Controls from './Controls.js'
 import BreweryList from './BreweryList.js'
 import logo from './images/shakesbeerlogosmall.png';
-// import flags from './images/';
 
 let starredData = JSON.parse(localStorage.getItem('userStarredList')) || [];
 
@@ -177,21 +176,20 @@ class ResultsPage extends Component {
   }
  
   render() {
-    // const flag = `./images/${this.props.selectedState}.png`;
     return (
-      <div className="results-page">
+      <div className='results-page'>
         <header>
           <i className='fas fa-arrow-left' onClick={this.goBackHome}></i>
-          <img className='logo' src={logo} alt="shakesbeer logo"/>
-          <h1 className="results-header">ShakesBeer</h1>
+          <img className='logo' src={logo} alt='shakesbeer logo'/>
+          <h1 className='results-header'>ShakesBeer</h1>
         </header>
         <main>
           <div className='brewery-list-header'>
-            {/* <img src={flag} alt='state flag'/> */}
-            <h2 className="state-subheading">{this.props.selectedState} Brewery List</h2> 
-            {/* <img src={flag} alt='state flag'/> */}
+            <img className='flag' src={require(`./images/${this.props.selectedState.toLowerCase()}.png`)} alt='state flag'/>
+            <h2 className='state-subheading'>{this.props.selectedState} Brewery List</h2> 
+            <img className='flag' src={require(`./images/${this.props.selectedState.toLowerCase()}.png`)} alt='state flag'/>
           </div>
-          <div className="brew-cards">
+          <div className='brew-cards'>
             <Controls breweryCities={this.state.breweryCities} 
                       beerStyles={this.state.beerStyles}
                       beerIbus={this.state.beerIbus}
