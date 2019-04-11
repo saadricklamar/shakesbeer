@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import './ResultsPage.css';
+import './ResultsPage.scss';
 import Controls from './Controls.js'
 import BreweryList from './BreweryList.js'
-import './images/shakesbeerlogosmall.png';
+import logo from './images/shakesbeerlogosmall.png';
+
+let starredData = JSON.parse(localStorage.getItem('userStarredList')) || [];
 
 class ResultsPage extends Component {
   constructor(props) {
@@ -11,14 +13,17 @@ class ResultsPage extends Component {
     this.state = {
       stateBreweries: [],
       filteredBreweries: [],
+      starredBreweries: starredData,
       breweryCities: [],
       beerStyles: [],
       beerIbus: [],
       citySelection: 'All', 
       styleSelection: 'All',
-      ibuSelection: 'All', 
-      abvSelection: 'All'
+      ibuSelection: 'All',
+      viewingStarred: false
     }
+
+    this.updateStarredList = this.updateStarredList.bind(this);
   }
 
   componentWillMount() {
@@ -80,9 +85,22 @@ class ResultsPage extends Component {
     this.refreshBreweryList();
   }
 
+  toggleStarView = () => {
+    this.setState({ viewingStarred: !this.state.viewingStarred }, () => {
+      this.refreshBreweryList();
+    });
+  }
+
   refreshBreweryList = () => {
-    //reset page defaults, or whatever we need to do to get beer details to show and collapse on filter change
+    this.hideBeerInfo('dropdown');
+    this.hideBeerInfo('description');
     this.setState({ filteredBreweries: [...this.state.stateBreweries] }, () => this.filterByCity());
+  }
+
+  hideBeerInfo = (element) => {
+    document.querySelectorAll(`.beer-${element}`).forEach(item => {
+      item.classList.add('hidden');
+    });
   }
 
   filterByCity = () => {
@@ -92,7 +110,7 @@ class ResultsPage extends Component {
       });
       this.setState({ filteredBreweries: filterResults }, () => this.filterByStyle());
     } else {
-      this.filterByStyle()
+      this.filterByStyle();
     }
   }
 
@@ -117,16 +135,44 @@ class ResultsPage extends Component {
         let breweryIbus = brewery.beers.map(beer => {
           return `${Math.round(beer.ibu / 10) * 10}-${(Math.round(beer.ibu / 10) * 10) + 9}`;
         });
-        if(breweryIbus.includes(this.state.ibuSelection)) {
+        if (breweryIbus.includes(this.state.ibuSelection)) {
           acc.push(brewery);
         }
         return acc;
-      }, [])
-      this.setState({filteredBreweries: filterResults}); //add filter by ABV to callback
-    } 
-    // else {
-    //   this.filterByAbv()
-    // }
+      }, []);
+      this.setState({ filteredBreweries: filterResults }, () => this.filterByStarred());
+    } else {
+      this.filterByStarred();
+    }
+  }
+
+  updateStarredList = (id, change) => {
+    let list = this.state.starredBreweries;
+    console.log(list.indexOf(list.find(obj => obj.id === id)));
+
+    if (change === 'add') {
+      list.push(id)
+    } else {
+      const matchingIndex = list.indexOf(list.find(obj => obj.id === id));
+      list.splice(matchingIndex, 1);
+    }
+
+    this.setState({starredBreweries: list}, () => {
+      localStorage.setItem('userStarredList', JSON.stringify(this.state.starredBreweries))
+    });
+  }
+
+  filterByStarred = () => {
+    if (this.state.viewingStarred === true) {
+      let filterResults = this.state.filteredBreweries.filter(brewery => {
+        return this.state.starredBreweries.includes(brewery.id);
+      })
+      this.setState({filteredBreweries: filterResults})
+    }
+  }
+
+  goBackHome = () => {
+    window.location.reload()
   }
  
   render() {
@@ -134,19 +180,23 @@ class ResultsPage extends Component {
     return (
       <div className="results-page">
         <header>
-          <img src="./images/shakesbeerlogosmall.png" alt="shakesbeer logo"/>
+          <i className='fas fa-arrow-left' onClick={this.goBackHome}></i>
+          <img className='logo' src={logo} alt="shakesbeer logo"/>
           <h1 className="results-header">ShakesBeer</h1>
         </header>
         <main>
-          <h2 className="state-subheading">{this.props.selectedState}</h2>  
+          <h2 className="state-subheading">{this.props.selectedState} Brewery List</h2>  
           <div className="brew-cards">
             <Controls breweryCities={this.state.breweryCities} 
                       beerStyles={this.state.beerStyles}
                       beerIbus={this.state.beerIbus}
                       updateFilterSelection={this.updateFilterSelection}
+                      toggleStarView={this.toggleStarView}
             />
             <BreweryList filteredBreweries={this.state.filteredBreweries} 
                          dataset={this.props.dataset}
+                         updateStarredList={this.updateStarredList}
+                         starredBreweries={this.state.starredBreweries}
             />
           </div>
         </main>

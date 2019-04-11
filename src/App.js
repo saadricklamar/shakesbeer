@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import WelcomePage from './WelcomePage.js';
 import ResultsPage from './ResultsPage.js';
-import './images/spinner.gif';
+import spinner from './images/spinner.gif';
 
 class App extends Component {
   constructor() {
@@ -36,7 +36,8 @@ class App extends Component {
         name: brewery.name,
         state: brewery.state,
         city: brewery.city,
-        beers: this.state.beers.filter(beer => beer.brewery_id === brewery.FIELD1)
+        beers: this.state.beers.filter(beer => beer.brewery_id === brewery.FIELD1),
+        id: brewery.FIELD1
       });
       return acc;
     }, []);
@@ -44,14 +45,15 @@ class App extends Component {
   }
 
   chooseState = (e) => {
-    this.setState({selectedState: e.target.innerText, showWelcomeScreen: false});
+    const state = !e.target.innerText ? e.currentTarget.value : e.target.innerText;
+    this.setState({selectedState: state, showWelcomeScreen: false});
   }
   
   render() {
     let page;
 
     if (this.state.beers.length === 0 || this.state.breweries.length === 0) {
-      page = <img className='loading' src='./images/spinner.gif' alt='loading icon'/>
+      page = <div className='loading-page'><img className='loading' src={spinner} alt='loading icon'/></div>
     } else if (this.state.showWelcomeScreen) {
       page = <WelcomePage dataset={this.state.dataset} 
                           chooseState={this.chooseState} />
@@ -59,6 +61,7 @@ class App extends Component {
       page = <ResultsPage selectedState={this.state.selectedState} 
                           dataset={this.state.dataset} />
     }
+
     return (<div>{page}</div>);
   }
 }

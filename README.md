@@ -1,68 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ShakesBeer
 
-## Available Scripts
+Need a beer, but not sure where to find one?! *ShakesBeer* will locate your next beer and brewery. Pick a state, filter by city, beer style, or ibu. Really love a beer?! Well, then favorite it. Cheers! 
 
-In the project directory, you can run:
+# Installation
 
-### `npm start`
+**Clone** this repo https://github.com/saadricklamar/shakesbeer.git
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In the project directory, please run:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+**npm start**
 
-### `npm test`
+npm start will run the app in the development mode. When the server is running, open http://localhost:3000 to view it in the browser.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If any alterations to the code are made, then the page will refresh.
 
-### `npm run build`
+# Home Page
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![ShakesBeerHomePage](https://user-images.githubusercontent.com/42000931/55891725-4a274e00-5b72-11e9-9e27-3b2a4b1e8a35.png)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+# Breweries Page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![statebrew](https://user-images.githubusercontent.com/42000931/55915609-27fbf300-5ba7-11e9-8e43-58f6eaec16e8.png)
 
-### `npm run eject`
+# See Our User Stories
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[UserStories](https://gist.github.com/saadricklamar/053a4565c323b407f0c72db0861e726a)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Tech/Frameworks Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* React
+* Sass
+* JSX
+* fetch API
+* Testing with Enzyme & Jest
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Learning Goals
 
-## Learn More
+The main goal of building Shakebeer was to get familiar with React and how to test React with Enzyme and Jest. We learned how React components interact with one another, how to test those components, and how to use Sass to write more efficient CSS. The app was built from scratch and utilizes array-prototype methods to extract and manipulate data. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# Contributors
+[Lynne Rang](https://github.com/lynnerang),
+[Duy Thanh Vu](https://github.com/Rosebud303),
+[Saad Baradan](https://github.com/saadricklamar),
+[Joe Johnson](https://github.com/joejohnson3985)
