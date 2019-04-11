@@ -30,10 +30,6 @@ class Breweries extends Component {
   }
 
   toggleFavorite = () => {
-    console.log(this.props.starredBreweries)
-    console.log(this.props.id);
-
-    console.log(this.props.starredBreweries.includes(this.props.id))
     !this.props.starredBreweries.includes(this.props.id) 
     ? this.props.updateStarredList(this.props.id, 'add')
     : this.props.updateStarredList(this.props.id)

@@ -5,9 +5,14 @@ exports[`ResultsPage Should match the snapshot 1`] = `
   className="results-page"
 >
   <header>
+    <i
+      className="fas fa-arrow-left"
+      onClick={[Function]}
+    />
     <img
       alt="shakesbeer logo"
-      src="./images/shakesbeerlogosmall.png"
+      className="logo"
+      src="shakesbeerlogosmall.png"
     />
     <h1
       className="results-header"
@@ -20,6 +25,7 @@ exports[`ResultsPage Should match the snapshot 1`] = `
       className="state-subheading"
     >
       <Component />
+       Brewery List
     </h2>
     <div
       className="brew-cards"
@@ -28,6 +34,7 @@ exports[`ResultsPage Should match the snapshot 1`] = `
         beerIbus={Array []}
         beerStyles={Array []}
         breweryCities={Array []}
+        toggleStarView={[Function]}
         updateFilterSelection={[Function]}
       />
       <BreweryList
@@ -84,6 +91,8 @@ exports[`ResultsPage Should match the snapshot 1`] = `
           ]
         }
         filteredBreweries={Array []}
+        starredBreweries={Array []}
+        updateStarredList={[Function]}
       />
     </div>
   </main>
