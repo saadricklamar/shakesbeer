@@ -53,12 +53,11 @@ class Breweries extends Component {
         </div>
         <div className='beer-dropdown hidden'>
         {
-        // this.state.dropDown && 
         this.state.beerList ? (
           this.state.beerList.map(beer => {
             return <Beer beers={this.state.beerList}
                          beerName={beer.name}
-                         key={beer.FIELD1}
+                         key={beer.name}
                     />
           })
         ) : (null)

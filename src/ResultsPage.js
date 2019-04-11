@@ -160,7 +160,6 @@ class ResultsPage extends Component {
   filterByStarred = () => {
     if (this.state.viewingStarred === true) {
       let filterResults = this.state.filteredBreweries.filter(brewery => {
-        console.log(brewery.name);
         return this.state.starredBreweries.includes(brewery.name);
       })
       this.setState({ filteredBreweries: filterResults })
