@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Breweries Should match the snapshot 1`] = `undefined`;
 
-exports[`Breweries Should match the snapshot 2`] = `
+exports[`Breweries Should match the snapshot 1`] = `
 <div
   className="brewery-label"
 >
@@ -10,7 +9,7 @@ exports[`Breweries Should match the snapshot 2`] = `
     className="brewery-header"
   >
     <i
-      className="fas far fa-star"
+      className="far fa-star"
       onClick={[Function]}
     />
     <h2
@@ -19,5 +18,8 @@ exports[`Breweries Should match the snapshot 2`] = `
       The Lion Brewery
     </h2>
   </div>
+  <div
+    className="beer-dropdown hidden"
+  />
 </div>
 `;
