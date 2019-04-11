@@ -56,7 +56,7 @@ main {
   border-radius: 100%;
 
   &:hover {
-    color: orange;
+    color: $primary-color;
     background: white;
   }
 }
