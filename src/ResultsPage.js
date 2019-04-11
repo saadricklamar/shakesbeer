@@ -177,7 +177,7 @@ class ResultsPage extends Component {
   }
  
   render() {
-    const flag = `./images/${this.props.selectedState}.png`;
+    // const flag = `./images/${this.props.selectedState}.png`;
     return (
       <div className="results-page">
         <header>
@@ -187,9 +187,9 @@ class ResultsPage extends Component {
         </header>
         <main>
           <div className='brewery-list-header'>
-            <img src={flag} alt='state flag'/>
+            {/* <img src={flag} alt='state flag'/> */}
             <h2 className="state-subheading">{this.props.selectedState} Brewery List</h2> 
-            <img src={flag} alt='state flag'/>
+            {/* <img src={flag} alt='state flag'/> */}
           </div>
           <div className="brew-cards">
             <Controls breweryCities={this.state.breweryCities} 
