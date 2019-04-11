@@ -6,7 +6,6 @@ class Breweries extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dropDown: false,
       breweryName: this.props.name || '',
       beerList: []
     }
@@ -14,14 +13,16 @@ class Breweries extends Component {
     this.toggleFavorite = this.toggleFavorite.bind(this);
   }
 
-  getTarget = (e) => {
-    this.setState({breweryName: e.target.innerText}, () => {
-      this.findBeers(); 
-    }) 
-    this.toggleDropDown();
+  componentWillMount() {
+    this.getBeers();
   }
 
-  findBeers = () => {
+  toggleBeerList = (e) => {
+    const beerList = e.target.closest('.brewery-label').querySelector('.beer-dropdown');
+    beerList.classList.toggle('hidden');
+  }
+
+  getBeers = () => {
     let match = this.props.dataset.find(brewery => {
       return this.state.breweryName === brewery.name;
     });
@@ -29,8 +30,8 @@ class Breweries extends Component {
     this.setState({beerList: beers});
   }
 
-  toggleDropDown = () => {
-    this.setState({dropDown: !this.state.dropDown})
+  toggleDropDown = (e) => {
+    this.setState({dropDown: !this.state.dropDown});
   }
 
   toggleFavorite = () => {
@@ -42,24 +43,26 @@ class Breweries extends Component {
   render() {
     let favClass = this.props.starredBreweries.includes(this.props.name) 
     ? 'far fa-star fas' 
-    : 'far fa-star ';
+    : 'far fa-star';
 
     return (
       <div className='brewery-label'>
         <div className='brewery-header'>
           <i className={favClass} onClick={this.toggleFavorite}></i>
-          <h2 onClick={this.getTarget}>{this.props.name}</h2>
+          <h2 onClick={this.toggleBeerList}>{this.props.name}</h2>
         </div>
+        <div className='beer-dropdown hidden'>
         {
-        this.state.dropDown && this.state.beerList ? (
-            this.state.beerList.map(beer => {
-                return <Beer beers={this.state.beerList}
-                              beerName={beer.name}
-                              key={beer.FIELD1}
-                        />
-            })
+        this.state.beerList ? (
+          this.state.beerList.map(beer => {
+            return <Beer beers={this.state.beerList}
+                         beerName={beer.name}
+                         key={beer.FIELD1}
+                    />
+          })
         ) : (null)
         }
+        </div>
       </div>
     );
   }

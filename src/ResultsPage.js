@@ -92,8 +92,15 @@ class ResultsPage extends Component {
   }
 
   refreshBreweryList = () => {
-    //reset page defaults, or whatever we need to do to get beer details to show and collapse on filter change
+    this.hideBeerInfo('dropdown');
+    this.hideBeerInfo('description');
     this.setState({ filteredBreweries: [...this.state.stateBreweries] }, () => this.filterByCity());
+  }
+
+  hideBeerInfo = (element) => {
+    document.querySelectorAll(`.beer-${element}`).forEach(item => {
+      item.classList.add('hidden');
+    });
   }
 
   filterByCity = () => {
@@ -153,17 +160,21 @@ class ResultsPage extends Component {
   filterByStarred = () => {
     if (this.state.viewingStarred === true) {
       let filterResults = this.state.filteredBreweries.filter(brewery => {
-        console.log(brewery.name);
         return this.state.starredBreweries.includes(brewery.name);
       })
       this.setState({ filteredBreweries: filterResults })
     }
+  }
+
+  goBackHome = () => {
+    window.location.reload()
   }
  
   render() {
     return (
       <div className="results-page">
         <header>
+          <i className='fas fa-arrow-left' onClick={this.goBackHome}></i>
           <img className='logo' src={logo} alt="shakesbeer logo"/>
           <h1 className="results-header">ShakesBeer</h1>
         </header>
