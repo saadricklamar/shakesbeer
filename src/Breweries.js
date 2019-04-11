@@ -6,7 +6,6 @@ class Breweries extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dropDown: false,
       breweryName: this.props.name || '',
       beerList: []
     }
@@ -16,12 +15,9 @@ class Breweries extends Component {
 
   componentWillMount() {
     this.getBeers();
-    // this.setState({breweryName: e.target.innerText}, () => this.findBeers());
   }
 
   toggleBeerList = (e) => {
-    // this.setState({breweryName: e.target.innerText}, () => this.findBeers()); 
-    // this.toggleDropDown();
     const beerList = e.target.closest('.brewery-label').querySelector('.beer-dropdown');
     beerList.classList.toggle('hidden');
   }

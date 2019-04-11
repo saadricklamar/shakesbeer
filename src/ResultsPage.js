@@ -30,10 +30,6 @@ class ResultsPage extends Component {
     this.getStateBreweries();
   }
 
-  resetPage() {
-    this.setState({dropDown: false});
-  }
-
   getStateBreweries = () => {
     let stateBreweries = this.props.dataset.filter(brewery => {
       return brewery.state === this.props.selectedState;
@@ -191,7 +187,6 @@ class ResultsPage extends Component {
                          dataset={this.props.dataset}
                          updateStarredList={this.updateStarredList}
                          starredBreweries={this.state.starredBreweries}
-                        //  resetPage={this.resetPage}
             />
           </div>
         </main>

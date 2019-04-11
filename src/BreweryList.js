@@ -11,7 +11,6 @@ function BreweryList(props) {
                        dataset={props.dataset}
                        starredBreweries={props.starredBreweries}
                        updateStarredList={props.updateStarredList}
-                      //  resetPage={this.props.resetPage}
             />
           )
         })
