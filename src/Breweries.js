@@ -18,7 +18,6 @@ class Breweries extends Component {
 
   toggleBeerList = (e) => {
     const beerList = e.target.closest('.brewery-label').querySelector('.beer-dropdown');
-    console.log(beerList)
     beerList.classList.toggle('hidden');
   }
 
