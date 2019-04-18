@@ -1,5 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+
 exports[`ResultsPage Should match the snapshot 1`] = `
 <div
   className="results-page"
@@ -187,3 +188,4 @@ exports[`ResultsPage Should match the snapshot 1`] = `
   </main>
 </div>
 `;
+
