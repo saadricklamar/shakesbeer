@@ -1,6 +1,7 @@
 {
   "name": "whateverly",
   "version": "0.1.0",
+  "engines": { "node": "11.7.0" },
   "private": true,
   "dependencies": {
     "node-sass": "^4.11.0",

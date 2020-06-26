@@ -26,6 +26,7 @@ describe('Autocomplete', () => {
                 activeSuggestion: 0,
                 filteredSuggestions: [],
                 showSuggestions: false,
+                suggestions: [],
                 userInput: ""
             }
         )

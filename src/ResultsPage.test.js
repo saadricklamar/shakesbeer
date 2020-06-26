@@ -52,13 +52,15 @@ const mockData = [
   ]
   }
 ]
+
+const mockSelectedState = 'Colorado'
 const mockFunc = jest.fn()
 
 describe('ResultsPage', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = shallow (
-          <ResultsPage selectedState={mockData}
+          <ResultsPage selectedState={mockSelectedState}
                        dataset={mockData}
           />
       )
@@ -73,7 +75,7 @@ describe('ResultsPage', () => {
       {
         stateBreweries: [],
         filteredBreweries: [],
-        starredBreweries: mockArray,
+        starredBreweries: [],
         breweryCities: [],
         beerStyles: [],
         beerIbus: [],
